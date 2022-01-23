@@ -1,0 +1,63 @@
+@use "../../styles/partials/variables" as *;
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        color: $color-text-primary;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 10rem;
+    }
+
+    &__email {
+        border: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: $color-text-tertiary;
+            font-family: 'Montserrat';
+        }
+    }
+
+    &__password {
+        border: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: $color-text-tertiary;
+            font-family: 'Montserrat';
+        }
+    }
+    
+    &__button {
+        font-family: 'Montserrat';
+        border: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        background: $color-accent-primary;
+        color: $color-text-primary;
+
+        &:hover {
+            background-color: $color-accent-secondary;
+        }
+    }
+
+
+}
