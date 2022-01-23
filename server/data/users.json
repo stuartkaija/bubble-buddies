@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1234",
+        "firstName": "John",
+        "lastName": "Doe",
+        "userName": "ScubaJohn",
+        "certification": "",
+        "yearsExperience": "17",
+        "displayPicture": ""
+    },
+    {
+        "id": "1235",
+        "firstName": "Susan",
+        "lastName": "Serandon",
+        "userName": "SusLovesScubaing",
+        "certification": "",
+        "yearsExperience": "3",
+        "displayPicture": ""
+    },
+    {
+        "id": "1236",
+        "firstName": "Peter",
+        "lastName": "Black",
+        "userName": "Peter123",
+        "certification": "",
+        "yearsExperience": "7",
+        "displayPicture": ""
+    },
+    {
+        "id": "1237",
+        "firstName": "Sal",
+        "lastName": "Winthorpe",
+        "userName": "SalW",
+        "certification": "",
+        "yearsExperience": "90",
+        "displayPicture": ""
+    }
+]
