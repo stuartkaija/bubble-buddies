@@ -34,5 +34,19 @@ router.get('/:userId', (req, res) => {
     res.status(200).json(foundUser);
 });
 
+// post endpoint for creating a new user
+router.post('/', (req, res) => {
+    console.log("post endpoint for creating new user");
+});
+
+// put endpoint for editing existing user
+router.put('/:userId', (req, res) => {
+    console.log("put endpoint for editing user");
+});
+
+// delete endpoint for deleting user
+router.delete('/:userId', (req, res) => {
+    console.log("delete endpoint for deleting user");
+});
 
 module.exports = router;
