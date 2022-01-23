@@ -1,0 +1,13 @@
+@use "../../styles/partials/variables" as *;
+
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $color-background-secondary;
+
+    &__title {
+        color: $color-text-primary;
+    }
+}

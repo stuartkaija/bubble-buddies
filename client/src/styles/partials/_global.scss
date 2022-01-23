@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 *,
 **::before,
 **::after {
@@ -7,4 +9,5 @@
 body {
   font-family: "Montserrat";
   margin: 0rem;
+  background-color: $color-background-primary;
 }
