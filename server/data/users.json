@@ -1,38 +1,42 @@
 [
     {
         "id": "1234",
+        "email": "",
         "firstName": "John",
         "lastName": "Doe",
         "userName": "ScubaJohn",
         "certification": "",
-        "yearsExperience": "17",
+        "yearsExperience": 17,
         "displayPicture": ""
     },
     {
         "id": "1235",
+        "email": "",
         "firstName": "Susan",
         "lastName": "Serandon",
         "userName": "SusLovesScubaing",
         "certification": "",
-        "yearsExperience": "3",
+        "yearsExperience": 3,
         "displayPicture": ""
     },
     {
         "id": "1236",
+        "email": "",
         "firstName": "Peter",
         "lastName": "Black",
         "userName": "Peter123",
         "certification": "",
-        "yearsExperience": "7",
+        "yearsExperience": 7,
         "displayPicture": ""
     },
     {
         "id": "1237",
+        "email": "",
         "firstName": "Sal",
         "lastName": "Winthorpe",
         "userName": "SalW",
         "certification": "",
-        "yearsExperience": "90",
+        "yearsExperience": 10,
         "displayPicture": ""
     }
 ]
