@@ -1,0 +1,7 @@
+@use '../../styles/partials/variables' as *;
+
+.buddy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
