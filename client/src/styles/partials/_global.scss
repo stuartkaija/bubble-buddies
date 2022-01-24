@@ -8,6 +8,11 @@
 
 body {
   font-family: "Montserrat";
+  color: $color-text-primary;
   margin: 0rem;
   background-color: $color-background-primary;
+}
+
+p {
+  margin: 0rem;
 }
