@@ -36,7 +36,25 @@ router.get('/:userId', (req, res) => {
 
 // post endpoint for creating a new user
 router.post('/', (req, res) => {
-    console.log("post endpoint for creating new user");
+    // backend validation if form not fully completed
+    const newUser = {
+        id: uniqid(),
+        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        userName: req.body.userName,
+        password: req.body.password,
+        certification: "",
+        yearsExperience: null,
+        displayPicture: ""
+    };
+    
+    const userData = readUsers();
+    userData.push(newUser);
+    console.log(userData);
+    // fs.writeFileSync('./data/users.json', JSON.stringify(userData));
+
+    res.status(201).json(newUser);
 });
 
 // put endpoint for editing existing user
