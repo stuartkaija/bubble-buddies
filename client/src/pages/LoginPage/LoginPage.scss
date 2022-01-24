@@ -4,16 +4,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 
     &__title {
         color: $color-text-primary;
+        font-weight: bold;
     }
 
     &__form {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        height: 10rem;
+        height: 6rem;
     }
 
     &__email {
@@ -28,6 +30,7 @@
         &::placeholder {
             color: $color-text-tertiary;
             font-family: 'Montserrat';
+            font-size: 0.65rem;
         }
     }
 
@@ -43,6 +46,7 @@
         &::placeholder {
             color: $color-text-tertiary;
             font-family: 'Montserrat';
+            font-size: 0.65rem;
         }
     }
     
@@ -51,6 +55,7 @@
         border: none;
         border-radius: 2rem;
         padding: 0.5rem 1rem;
+        margin: 0.5rem 0rem;
         background: $color-accent-primary;
         color: $color-text-primary;
 
@@ -59,5 +64,9 @@
         }
     }
 
-
+    &__span {
+        color: $color-text-primary;
+        font-weight: bold;
+        margin: 0.5rem;
+    }
 }
