@@ -5,7 +5,15 @@ export default class SearchPage extends Component {
 
     handleSearch = (event) => {
         event.preventDefault();
-        console.log("i am searching");
+        const userSearch = event.target.search.value
+        axios
+            .post("http://localhost:8080/weather", {
+                search: userSearch
+            })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => console.log(error));
     };
 
     render() {
