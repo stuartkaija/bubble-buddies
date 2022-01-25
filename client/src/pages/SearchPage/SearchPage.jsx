@@ -3,6 +3,9 @@ import axios from 'axios';
 
 export default class SearchPage extends Component {
 
+    // state to hold the data when it arrives from the backend
+
+
     handleSearch = (event) => {
         event.preventDefault();
         const userSearch = event.target.search.value
@@ -24,6 +27,15 @@ export default class SearchPage extends Component {
                     <input type="search" name='search' id='search' />
                 </form>
                 <button form='searchForm'>Search</button>
+                <div>
+                    {/* returned data just to get it on the page in the next hour hopefully */}
+                    <p>condition</p>
+                    <p>temp</p>
+                    <p>wind</p>
+                    <p>vis</p>
+                    <p>swell</p>
+                    <p>tide</p>
+                </div>
             </>
         );
     }

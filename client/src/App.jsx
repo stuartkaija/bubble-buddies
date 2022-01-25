@@ -12,13 +12,15 @@ function App() {
     return (
         <BrowserRouter>
             <Header />
-            <Switch>
-                <Route path='/' exact component={LoginPage} />
-                <Route path='/signup' component={SignUp} />
-                <Route path='/find' component={FindBuddyPage} />
-                <Route path ='/search' component={SearchPage} />
-                <Route path='/:userId' component={ProfilePage} />
-            </Switch>
+            <div className='app'>
+                <Switch>
+                    <Route path='/' exact component={LoginPage} />
+                    <Route path='/signup' component={SignUp} />
+                    <Route path='/find' component={FindBuddyPage} />
+                    <Route path ='/search' component={SearchPage} />
+                    <Route path='/:userId' component={ProfilePage} />
+                </Switch>
+            </div>
         </BrowserRouter>
     );
 }
