@@ -36,14 +36,14 @@ router.get('/:userId', (req, res) => {
 
 // post endpoint for creating a new user
 router.post('/', (req, res) => {
+    const { email, password } = req.body;
     // backend validation if form not fully completed
     const newUser = {
         id: uniqid(),
-        email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        userName: req.body.userName,
-        password: req.body.password,
+        email: email,
+        firstName: "",
+        lastName: "",
+        password: password,
         certification: "",
         yearsExperience: null,
         displayPicture: ""
