@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-around;
     background-color: $color-background-secondary;
+    border-bottom: 1px solid $color-accent-primary;
 
     &__title {
         color: $color-text-primary;

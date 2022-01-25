@@ -8,21 +8,21 @@ export default class ProfilePage extends Component {
     // I think this will state, and it'll be whichever user is currently logged in, which will then populate the details of this component
     state = {
         user: {
-            "id": "1234",
-            "email": "",
-            "firstName": "John",
-            "lastName": "Doe",
-            "userName": "ScubaJohn",
-            "certification": "PADI Dive Master",
-            "yearsExperience": 17,
-            "displayPicture": ""
+            id: "1234",
+            email: "",
+            firstName: "John",
+            lastName: "Doe",
+            userName: "ScubaJohn",
+            certification: "PADI Dive Master",
+            yearsExperience: 17,
+            URL: "https://unsplash.com/photos/_8b7AW-p3Js"
         }
     }
 
     render() {
         return (
             <div className='profile'>
-                <DisplayPicture profilePic={profilePic} />
+                <DisplayPicture profilePic={this.state.user.URL} />
                 <article className='profile__info-card'>
                     <div className='profile__personal-details'>
                         <p className='profile__user-name'>{this.state.user.userName}</p>
