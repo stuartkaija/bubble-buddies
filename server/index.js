@@ -14,6 +14,7 @@ app.use(cors());
 
 // routes
 app.use("/users", userRoutes);
+app.use("/locations", weatherRoutes);
 
 app.listen(port, () => {
     console.log(`The server is running on ${port}`);
