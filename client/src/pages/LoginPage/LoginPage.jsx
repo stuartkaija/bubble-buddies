@@ -8,6 +8,7 @@ export default class LoginPage extends Component {
     state = {
         loggedIn: false,
         error: "",
+        // user: null
     }
 
     handleSubmit = (event) => {
@@ -34,6 +35,9 @@ export default class LoginPage extends Component {
                 sessionStorage.setItem("token", response.data);
                 this.setState({ loggedIn: true, error: "" })
             })
+            // .then(
+                // in case I need to make another axios call to log in to specific users profile
+            // )
             .catch(error => {
                 this.setState({ error: "Invalid Email/Password" })
             });
@@ -49,7 +53,7 @@ export default class LoginPage extends Component {
                 </form>
                 {this.state.error && <p className='login__error'>{this.state.error}</p>}
                 <button className='login__button' form='login'>Log In</button>
-                {this.state.loggedIn && <Redirect to='/' />}
+                {this.state.loggedIn && <Redirect to='/current' />}
                 <p className='login__span'>Don't have an account?</p>
                 <Link to='/signup'>
                     <button className='login__button'>Sign Up</button>

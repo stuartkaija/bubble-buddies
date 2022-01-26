@@ -26,13 +26,24 @@ router.get('/', (req, res) => {
 });
 
 // get endpoint specific user
-router.get('/:userId', (req, res) => {
-    const id = req.params.userId;
-    const foundUser = findUser(id);
-    if (!foundUser) {
-        res.status(400).json("user not found");
-    }
-    res.status(200).json(foundUser);
+router.get('/current', (req, res) => {
+    // const id = req.params.userId;
+    // const foundUser = findUser(id);
+    // if (!foundUser) {
+    //     res.status(400).json("user not found");
+    // }
+    // res.status(200).json(foundUser);
+    const authToken = req.headers.authorization.split(" ")[1];
+
+    //verify token
+    jwt.verify(authToken, process.env.JWT_KEY, (error, decoded) => {
+        if (error) {
+            return res.status(401).send("you must be logged in to see this page");
+        }
+        const users = readUsers();
+        const foundUser = users.find((user) => user.email === decoded.email)
+        res.json(foundUser);
+    });
 });
 
 // post endpoint for creating a new user
@@ -73,7 +84,7 @@ router.post('/login', (req, res) => {
     }
 
     const foundUser = findUser(email);
-
+    console.log(foundUser);
     if (!foundUser) {
         res.status(400).send("That email doesn't seem to be registered...")
     }
@@ -96,12 +107,12 @@ router.post('/login', (req, res) => {
 
 
 // put endpoint for editing existing user
-router.put('/:userId', (req, res) => {
+router.put('/current', (req, res) => {
     console.log("put endpoint for editing user");
 });
 
 // delete endpoint for deleting user
-router.delete('/:userId', (req, res) => {
+router.delete('/current', (req, res) => {
     console.log("delete endpoint for deleting user");
 });
 
