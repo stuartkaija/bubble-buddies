@@ -32,7 +32,6 @@
             color: $color-text-tertiary;
             font-family: 'Montserrat';
             font-size: 0.65rem;
-
         }
     }
 
@@ -90,5 +89,9 @@
         color: $color-text-primary;
         font-weight: bold;
         margin: 0.5rem;
+    }
+
+    &__success {
+        color: $color-success;
     }
 }

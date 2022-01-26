@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const uniqid = require("uniqid");
+const bcrypt = require("bcrypt");
 
 // function to read user data
 const readUsers = () => {
@@ -10,13 +11,12 @@ const readUsers = () => {
     return userDataParsed;
 };
 
-// function to find specific user
-const findUser = (id) => {
+// function to find specific user by their email
+const findUser = (email) => {
     const userData = readUsers();
-    return userData.find((user) => id === user.id)
+    return userData.find((user) => email === user.email);
 };
 
-// function to find specific user
 
 // get endpoint for all users
 router.get('/', (req, res) => {
@@ -35,15 +35,21 @@ router.get('/:userId', (req, res) => {
 });
 
 // post endpoint for creating a new user
-router.post('/', (req, res) => {
+router.post('/signup', (req, res) => {
     const { email, password } = req.body;
-    // backend validation if form not fully completed
+
+    if (!email || !password) {
+        return res.status(400).send("Email and password are required to sign up.")
+    }
+
+    const hashedPassword = bcrypt.hashSync(password, 10);
+
     const newUser = {
         id: uniqid(),
         email: email,
         firstName: "",
         lastName: "",
-        password: password,
+        password: hashedPassword,
         certification: "",
         yearsExperience: null,
         displayPicture: ""
@@ -54,8 +60,34 @@ router.post('/', (req, res) => {
     console.log(userData);
     // fs.writeFileSync('./data/users.json', JSON.stringify(userData));
 
-    res.status(201).json(newUser);
+    res.status(201).send("registration successful!");
 });
+
+// log in auth
+router.post('/login', (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).send("Email and password are required to log in.")
+    }
+
+    const foundUser = findUser(email);
+
+    if (!foundUser) {
+        res.status(400).send("That email doesn't seem to be registered...")
+    }
+
+    const checkPassword = bcrypt.compareSync(password, foundUser.password);
+    if (!checkPassword) {return res.send('wrong password :(')}
+
+    res.send("right password :)")
+    
+});
+
+
+
+
+
 
 // put endpoint for editing existing user
 router.put('/:userId', (req, res) => {

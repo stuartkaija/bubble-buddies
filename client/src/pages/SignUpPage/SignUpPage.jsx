@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import uniqid from 'uniqid';
 import './SignUpPage.scss';
 
 export default class SignUp extends Component {
 
-    
+    state = {
+        error: "",
+        success: false,
+    }
 
-    // event handler for when user signs up - will make axios post request to backend to create a new user with credentials that are inputted
     handleSubmit = (event) => {
         event.preventDefault();
 
@@ -28,7 +30,7 @@ export default class SignUp extends Component {
 
         // axios post request here to the back end to post newly signed up user to JSON data
         axios
-            .post('http://localhost:8080/users', {
+            .post('http://localhost:8080/users/signup', {
                 id: uniqid(),
                 email: event.target.email.value,
                 firstName: "",
@@ -38,23 +40,20 @@ export default class SignUp extends Component {
                 yearsExperience: null,
                 displayPicture: ""
             })
-            .then((response) => {
-                console.log(response);
-            })
             .then(() => {
-                console.log(this.props.history);
+                this.setState({
+                    success: true,
+                    error: ""
+                })
+                event.target.reset();
             })
-            .catch((error) => {
-                console.log(error);
-            });
-
+            .catch(error => console.log(error));
     };
 
     render() {
         return (
             <div className='sign-up'>
                 <p className='sign-up__title'>Sign Up</p>
-                {/* this needs to having a signup form that makes an axios request to backend for registering a new user, as well as links to sign up page and another link to login page */}
                 <form onSubmit={this.handleSubmit} className='sign-up__form' id="signup">
                     <input className='sign-up__email' type="text" name='email' id='email' placeholder='Email' />
                     <input className='sign-up__password' type="password" name='password' id='password' placeholder='Password' />
@@ -62,6 +61,7 @@ export default class SignUp extends Component {
                 </form>
                 <button className='sign-up__button' form='signup'>Sign Up</button>
                 <p className='sign-up__span'>Have an account?</p>
+                {this.state.success && <div className='sign-up__success'>Signed Up! Please Log In Below</div>}
                 <Link to='/'>
                     <button className='sign-up__button'>Log In</button>
                 </Link>
