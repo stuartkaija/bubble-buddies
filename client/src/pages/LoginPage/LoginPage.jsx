@@ -54,10 +54,12 @@ export default class LoginPage extends Component {
                 {this.state.error && <p className='login__error'>{this.state.error}</p>}
                 <button className='login__button' form='login'>Log In</button>
                 {this.state.loggedIn && <Redirect to='/current' />}
-                <p className='login__span'>Don't have an account?</p>
-                <Link to='/signup'>
-                    <button className='login__button'>Sign Up</button>
-                </Link>
+                <div className='login__container'>
+                    <p className='login__span'>Don't have an account?</p>
+                    <Link to='/signup'>
+                        <button className='login__button'>Sign Up</button>
+                    </Link>
+                </div>
             </div>
         );
     }

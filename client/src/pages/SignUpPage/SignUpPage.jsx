@@ -60,11 +60,13 @@ export default class SignUp extends Component {
                     <input className='sign-up__password' type="password" name='confirmPassword' id='confirmPassword' placeholder='Confirm Password' />
                 </form>
                 <button className='sign-up__button' form='signup'>Sign Up</button>
-                <p className='sign-up__span'>Have an account?</p>
-                {this.state.success && <div className='sign-up__success'>Signed Up! Please Log In Below</div>}
-                <Link to='/'>
-                    <button className='sign-up__button'>Log In</button>
-                </Link>
+                <div className='sign-up__container'>
+                    <p className='sign-up__span'>Have an account?</p>
+                    {this.state.success && <div className='sign-up__success'>Signed Up! Please Log In Below</div>}
+                    <Link to='/'>
+                        <button className='sign-up__button'>Log In</button>
+                    </Link>
+                </div>
             </div>
         )
     }

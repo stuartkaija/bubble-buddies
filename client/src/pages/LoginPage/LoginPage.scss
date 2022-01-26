@@ -64,6 +64,13 @@
         }
     }
 
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4rem;
+    }
+
     &__span {
         color: $color-text-primary;
         font-weight: bold;

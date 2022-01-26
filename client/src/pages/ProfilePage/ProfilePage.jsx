@@ -35,10 +35,25 @@ export default class ProfilePage extends Component {
             .catch(error => console.log(error));
     }
 
+    handleLogout = () => {
+        sessionStorage.removeItem("token");
+        this.setState({
+            user: null,
+            failedAuth: true
+        })
+    };
+
+
     render() {
         if (this.state.failedAuth || !this.state.user) {
             return (
                 <div>You must be logged in to see this page. <Link to='/'>Log In</Link> </div>
+            )
+        }
+
+        if (!this.state.user) {
+            return (
+                <div>Loading...</div>
             )
         }
 
@@ -57,6 +72,11 @@ export default class ProfilePage extends Component {
                         <p className='profile__about'>About: This is an about section and will need to be populated with information from the backend in the JSON file</p>
                     </div>
                 </article>
+                <div className='profile__link-container'>
+                    <Link to='/search' className='profile__link'>Search for a dive location!</Link>
+                    <Link to='/find' className='profile__link'>Find a buddy!</Link>
+                </div>
+                <button className='profile__logout' onClick={this.handleLogout}>Log Out</button>
             </div>
         );
     }

@@ -1,8 +1,9 @@
 @use '../../styles/partials/variables' as *;
 
 .profile-picture {
-    width: 15rem;
-    border-radius: 1rem;
-    margin: 1rem 0rem;
-    box-shadow: 0px 0px 10px 0.1px $color-fail;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    // margin: 1rem 0rem;
+    box-shadow: 0px 0px 10px 0.1px $color-background-secondary;
 }
