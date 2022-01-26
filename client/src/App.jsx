@@ -18,7 +18,7 @@ function App() {
                     <Route path='/signup' component={SignUp} />
                     <Route path='/find' component={FindBuddyPage} />
                     <Route path ='/search' component={SearchPage} />
-                    <Route path='/:userId' component={ProfilePage} />
+                    <Route path='/current' component={ProfilePage} />
                 </Switch>
             </div>
         </BrowserRouter>
