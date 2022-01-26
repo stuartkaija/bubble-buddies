@@ -7,7 +7,6 @@ import axios from 'axios';
 
 export default class ProfilePage extends Component {
 
-    // I think this will state, and it'll be whichever user is currently logged in, which will then populate the details of this component
     state = {
         user: null,
         failedAuth: false
@@ -47,7 +46,7 @@ export default class ProfilePage extends Component {
     render() {
         if (this.state.failedAuth || !this.state.user) {
             return (
-                <div>You must be logged in to see this page. <Link to='/'>Log In</Link> </div>
+                <div>You must be logged in to see this page. <Link to='/'>Log In</Link></div>
             )
         }
 
