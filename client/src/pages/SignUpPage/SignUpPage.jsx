@@ -47,7 +47,7 @@ export default class SignUp extends Component {
                 })
                 event.target.reset();
             })
-            .catch(error => console.log(error));
+            .catch((error) => {console.log(error)});
     };
 
     render() {

@@ -69,4 +69,8 @@
         font-weight: bold;
         margin: 0.5rem;
     }
+
+    &__error {
+        color: $color-fail;
+    }
 }

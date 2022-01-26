@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './LoginPage.scss';
 
 export default class LoginPage extends Component {
 
-    // state that says whether user is logged in or not
     state = {
-        loggedIn: false
+        loggedIn: false,
+        error: "",
     }
 
     handleSubmit = (event) => {
@@ -22,9 +22,21 @@ export default class LoginPage extends Component {
                 email: event.target.email.value,
                 password: event.target.password.value
             })
+            // .then((response) => {
+            //     console.log(response);
+            //     sessionStorage.setItem("token", response.data);
+            //     this.setState({ loggedIn: true })
+            // })
             .then((response) => {
-                console.log(response);
+                if (response.data === 'invalid password') {
+                    this.setState({ error: "Invalid Email/Password" })
+                }
+                sessionStorage.setItem("token", response.data);
+                this.setState({ loggedIn: true, error: "" })
             })
+            .catch(error => {
+                this.setState({ error: "Invalid Email/Password" })
+            });
     };
 
     render() {
@@ -35,7 +47,9 @@ export default class LoginPage extends Component {
                     <input className='login__email' type="text" id='email' name='email' placeholder='EMAIL' />
                     <input className='login__password' type="password" id='password' name='password' placeholder='PASSWORD' />
                 </form>
+                {this.state.error && <p className='login__error'>{this.state.error}</p>}
                 <button className='login__button' form='login'>Log In</button>
+                {this.state.loggedIn && <Redirect to='/' />}
                 <p className='login__span'>Don't have an account?</p>
                 <Link to='/signup'>
                     <button className='login__button'>Sign Up</button>

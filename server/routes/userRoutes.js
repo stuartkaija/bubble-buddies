@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require("fs");
 const uniqid = require("uniqid");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 // function to read user data
 const readUsers = () => {
@@ -78,10 +79,15 @@ router.post('/login', (req, res) => {
     }
 
     const checkPassword = bcrypt.compareSync(password, foundUser.password);
-    if (!checkPassword) {return res.send('wrong password :(')}
+    if (!checkPassword) {return res.status(400).send('invalid password')}
 
-    res.send("right password :)")
-    
+    const token = jwt.sign(
+        {id: foundUser.id, email: foundUser.email},
+        process.env.JWT_KEY,
+        {expiresIn: "1h"}
+    )
+
+    res.json(token);
 });
 
 
