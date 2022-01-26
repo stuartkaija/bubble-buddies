@@ -86,11 +86,14 @@ router.post('/login', (req, res) => {
     const foundUser = findUser(email);
     console.log(foundUser);
     if (!foundUser) {
-        res.status(400).send("That email doesn't seem to be registered...")
+        res.status(400).send("No user found.")
     }
 
     const checkPassword = bcrypt.compareSync(password, foundUser.password);
-    if (!checkPassword) {return res.status(400).send('invalid password')}
+    if (!checkPassword) {return res.status(400).send('Invalid password.')}
+    
+    const userId = foundUser.id;
+    console.log(userId);
 
     const token = jwt.sign(
         {id: foundUser.id, email: foundUser.email},
@@ -98,7 +101,7 @@ router.post('/login', (req, res) => {
         {expiresIn: "1h"}
     )
 
-    res.json(token);
+    res.json({token: token, userId: userId});
 });
 
 
