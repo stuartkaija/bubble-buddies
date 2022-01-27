@@ -56,7 +56,7 @@ export default class ProfilePage extends Component {
             )
         }
 
-        const { URL, firstName, lastName, certification, yearsExperience } = this.state.user
+        const { URL, id, firstName, lastName, certification, yearsExperience } = this.state.user
 
         return (
             <div className='profile'>
@@ -73,7 +73,7 @@ export default class ProfilePage extends Component {
                 </article>
                 <div className='profile__link-container'>
                     <Link to='/search' className='profile__link'>Search for a dive location!</Link>
-                    <Link to='/find' className='profile__link'>Find a buddy!</Link>
+                    <Link to={'/' + id + '/find'} className='profile__link'>Find a buddy!</Link>
                 </div>
                 <button className='profile__logout' onClick={this.handleLogout}>Log Out</button>
             </div>

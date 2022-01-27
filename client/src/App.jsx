@@ -16,9 +16,9 @@ function App() {
                 <Switch>
                     <Route path='/' exact component={LoginPage} />
                     <Route path='/signup' component={SignUp} />
-                    <Route path='/find' component={FindBuddyPage} />
                     <Route path ='/search' component={SearchPage} />
-                    <Route path='/:userId' component={ProfilePage} />
+                    <Route path='/:userId' exact component={ProfilePage} />
+                    <Route path='/:userId/find' component={FindBuddyPage} />
                 </Switch>
             </div>
         </BrowserRouter>

@@ -70,7 +70,7 @@ router.post('/signup', (req, res) => {
     const userData = readUsers();
     userData.push(newUser);
     console.log(userData);
-    // fs.writeFileSync('./data/users.json', JSON.stringify(userData));
+    fs.writeFileSync('./data/users.json', JSON.stringify(userData));
 
     res.status(201).send("registration successful!");
 });

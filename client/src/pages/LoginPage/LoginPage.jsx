@@ -24,7 +24,6 @@ export default class LoginPage extends Component {
                 password: event.target.password.value
             })
             .then((response) => {
-                console.log(response);
                 if (response.data === 'Invalid password.') {
                     this.setState({ error: "Invalid Email/Password" })
                 }
