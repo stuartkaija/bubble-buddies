@@ -56,11 +56,11 @@ export default class ProfilePage extends Component {
             )
         }
 
-        const { URL, id, firstName, lastName, certification, yearsExperience } = this.state.user
+        const { displayPicture, id, firstName, lastName, certification, yearsExperience } = this.state.user
 
         return (
             <div className='profile'>
-                <DisplayPicture profilePic={profilePic} />
+                <DisplayPicture displayPicture={displayPicture} />
                 <article className='profile__info-card'>
                     <div className='profile__personal-details'>
                         <p className='profile__user-name'>{firstName} {lastName}</p>
