@@ -28,11 +28,13 @@ export default class FindBuddyPage extends Component {
         this.setState({userId: userId});
     }
     
-
+    // Callback that will be executed when a swipe has been completed. It will be called with a single string denoting which direction the swipe was in: 'left', 'right', 'up' or 'down'.
+    // conditional statement whether direction is left or right i.e. if left add user to rightarray and vice versa
     onSwipe = (direction) => {
         console.log('You swiped: ' + direction)
     }
 
+    // Callback that will be executed when a TinderCard has left the screen. It will be called with a single string denoting which direction the swipe was in: 'left', 'right', 'up' or 'down'.
     onCardLeftScreen = (myIdentifier) => {
         console.log(myIdentifier + ' left the screen')
       }
@@ -50,15 +52,18 @@ export default class FindBuddyPage extends Component {
             <div className='buddy-container'>
                 {filteredUsers.map((user) => {
                     return (
-                        <TinderCard 
+                        <TinderCard
                             key={user.id}
-                            // name={user.firstName}
-                            // years={user.yearsExperience} // these are going to all have to go in the display pic component
-                            // certification={user.certification}
+                            className='buddy-container__tindercard'
                             onSwipe={this.onSwipe}
                             onCardLeftScreen={() => this.onCardLeftScreen('fooBar')}
-                            preventSwipe={['right', 'left']}>
-                            <DisplayPicture />
+                            preventSwipe={['up', 'down']}>
+                            <DisplayPicture 
+                                className='buddy-container__picture'
+                                name={user.firstName}
+                                certification={user.certification}
+                                experience={user.yearsExperience}
+                                />
                         </TinderCard>
                     )
                 })}

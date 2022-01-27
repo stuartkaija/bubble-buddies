@@ -4,4 +4,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &__tindercard {
+        position: absolute;
+    }
+    
+    &__picture {
+        position: absolute;
+    }
 }
