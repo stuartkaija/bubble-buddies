@@ -1,1 +1,106 @@
-[{"id":"111sxewukwukyuvpjt6","email":"greg@email.com","firstName":"Greg","lastName":"Jackson","password":"$2b$10$Gi3K6M8hzofuFc2UYVm13OSnv4ZwJGByxl0fIZrJBsLVf7Gk5fBBW","certification":"Divemaster","yearsExperience":5,"displayPicture":"https://images.unsplash.com/photo-1564381564020-17161124fff1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80","rightUsers":[],"leftUsers":[]},{"id":"111sxewukxdkyuvpva7","email":"stacy@email.com","firstName":"Stacy","lastName":"Diamond","password":"$2b$10$83WPRbpQNUG29hW38rksG.g1D2BzS6pzoIleYAC0RKwulxVn73/wi","certification":"Instructor","yearsExperience":8,"displayPicture":"https://images.unsplash.com/photo-1579503475296-489bf078e9af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2378&q=80","rightUsers":[],"leftUsers":[]},{"id":"111sxewukxokyuvq2uz","email":"bobo@email.com","firstName":"Bobo","lastName":"Smith","password":"$2b$10$wU9IE7RyUHk/6brG9eTdMeFMmLWNKD6OOjJ0PBTlLjcEuLwMymqzi","certification":"None","yearsExperience":2,"displayPicture":"https://images.unsplash.com/photo-1544551763-8dd44758c2dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80","rightUsers":[],"leftUsers":[]},{"id":"111sxewuzc0kyw88cha","email":"fryn@email.com","firstName":"","lastName":"","password":"$2b$10$UiuUzwNFaObYDxjndd2CP.TrR3i/ZhPQY5kICO5pdTyi8tX1zlR.S","certification":"","yearsExperience":null,"displayPicture":"https://images.unsplash.com/photo-1570367364062-4ab01ebf0954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"},{"id":"111sxewuzefkyw8rgsn","email":"stu@email.com","firstName":"","lastName":"","password":"$2b$10$XL.lpJo.3pIC4V./5/8G6uOG94..Wa.ylHnC5qNvFqjUVSIPsL2he","certification":"","yearsExperience":null,"displayPicture":""},{"id":"111sxewu1f3gkyxrk8c8","email":"johndoe@email.com","firstName":"","lastName":"","password":"$2b$10$Qyb12qLabBMD4V/R9eJaleGmTjaZfakU5R835.Cu4D3.AbpsWPALq","certification":"","yearsExperience":null,"displayPicture":""}]
+[
+    {
+        "id": "111sxewukwukyuvpjt6",
+        "email": "greg@email.com",
+        "firstName": "Greg",
+        "lastName": "Jackson",
+        "password": "$2b$10$Gi3K6M8hzofuFc2UYVm13OSnv4ZwJGByxl0fIZrJBsLVf7Gk5fBBW",
+        "certification": "Divemaster",
+        "yearsExperience": 5,
+        "displayPicture": "https://images.unsplash.com/photo-1564381564020-17161124fff1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "I've been scuba diving for 5 years, and my favorite fish is the rainbow trout. Favorite place to dive? It's gotta be the tropical waters of the Andaman Sea."
+    },
+    {
+        "id": "111sxewukxdkyuvpva7",
+        "email": "stacy@email.com",
+        "firstName": "Stacy",
+        "lastName": "Diamond",
+        "password": "$2b$10$83WPRbpQNUG29hW38rksG.g1D2BzS6pzoIleYAC0RKwulxVn73/wi",
+        "certification": "Instructor",
+        "yearsExperience": 18,
+        "displayPicture": "https://images.unsplash.com/photo-1579503475296-489bf078e9af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2378&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "I've been diving since I was 8 years old. ISO new dive buds. I love the ocean, fish, sharks, whales, crustaceans, plankton, seals, sea lions, dolphins, and MOST of all, starfish."
+    },
+    {
+        "id": "111sxewukxokyuvq2uz",
+        "email": "bobo@email.com",
+        "firstName": "Bob",
+        "lastName": "Smith",
+        "password": "$2b$10$wU9IE7RyUHk/6brG9eTdMeFMmLWNKD6OOjJ0PBTlLjcEuLwMymqzi",
+        "certification": "None",
+        "yearsExperience": 2,
+        "displayPicture": "https://images.unsplash.com/photo-1544551763-8dd44758c2dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "My name's Bob, nothing better than hangin' loose out in the blue beyond."
+    },
+    {
+        "id": "111sxewuzc0kyw88cha",
+        "email": "harry@email.com",
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "password": "$2b$10$UiuUzwNFaObYDxjndd2CP.TrR3i/ZhPQY5kICO5pdTyi8tX1zlR.S",
+        "certification": "None",
+        "yearsExperience": 1,
+        "displayPicture": "https://images.unsplash.com/photo-1570367364062-4ab01ebf0954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "I am in fact a wizard, and don't need to use a scuba tank to breathe underwater! No lie!"
+    },
+    {
+        "id": "111sxewu1j8mkyxxrkav",
+        "email": "janedoe@email.com",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "password": "$2b$10$5Nmx5wU1iKPAfITNx2Jlde8hzRIccCmKiv2Kf3nhVydFLqV9tYGZq",
+        "certification": "Divemaster",
+        "yearsExperience": null,
+        "displayPicture": "https://images.unsplash.com/photo-1519327567471-ae47752b8089?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "Looking to meet some radical dive buds."
+    },
+    {
+        "id": "111sxewu1js4kyxxx13p",
+        "email": "ron@email.com",
+        "firstName": "Ron",
+        "lastName": "Weasley",
+        "password": "$2b$10$5BpeoQd6f65luz3NgceCOOiMyZgfMqCCL5.RmluMvMLnpPE7z3zEC",
+        "certification": "Divemaster",
+        "yearsExperience": 1,
+        "displayPicture": "https://images.unsplash.com/photo-1560275619-4cc5fa59d3ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1249&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "There's nothing better than the smell of seaweed on a sunny summer sea-salt filled day. Huzzah!"
+    },
+    {
+        "id": "111sxewu1k7ykyxy3sjc",
+        "email": "gertrude@email.com",
+        "firstName": "Gertrude",
+        "lastName": "Abigail",
+        "password": "$2b$10$KlpNOYk9o2gMb9bejjb6m.CTex7Fv.CKLaOhJlj1zeuFiB2LdTW/G",
+        "certification": "none",
+        "yearsExperience": 2,
+        "displayPicture": "https://images.unsplash.com/photo-1603370671351-ce85bc0ec91e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "All I have to say is the BEST place to go DIVING is the Arctic Ocean, believe it or not! So chilly, but so fun!"
+    },
+    {
+        "id": "111sxewu1k8jkyxy4ecv",
+        "email": "sam@email.com",
+        "firstName": "Sam",
+        "lastName": "Saddlesworth",
+        "password": "$2b$10$mhvuIv/ATfXSCJC4WP1jZel8/d53ViPPM6br8hE/FqIl69RIlPDbW",
+        "certification": "Divemaster",
+        "yearsExperience": 4,
+        "displayPicture": "https://images.unsplash.com/photo-1496161341410-90ce6ad8b390?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "Life is but a dream."
+    }
+]

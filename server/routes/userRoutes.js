@@ -64,7 +64,11 @@ router.post('/signup', (req, res) => {
         password: hashedPassword,
         certification: "",
         yearsExperience: null,
-        displayPicture: ""
+        // default picture when new user signs up
+        displayPicture: "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+        rightUsers: [],
+        leftUsers: [],
+        about: ""
     };
     
     const userData = readUsers();

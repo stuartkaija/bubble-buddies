@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './ProfilePage.scss';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
-import profilePic from "../../assets/photos/sebastian-pena-lambarri-7i5HMCGupVw-unsplash.jpg";
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -56,19 +55,24 @@ export default class ProfilePage extends Component {
             )
         }
 
-        const { displayPicture, id, firstName, lastName, certification, yearsExperience } = this.state.user
+        const { displayPicture, id, firstName, lastName, certification, yearsExperience, about } = this.state.user
 
         return (
             <div className='profile'>
-                <DisplayPicture displayPicture={displayPicture} />
+                <DisplayPicture 
+                    displayPicture={displayPicture}
+                    name={firstName + " " + lastName}
+                    certification={certification}
+                    experience={yearsExperience}
+                    />
                 <article className='profile__info-card'>
-                    <div className='profile__personal-details'>
+                    {/* <div className='profile__personal-details'>
                         <p className='profile__user-name'>{firstName} {lastName}</p>
                         <p className='profile__cert'>Certification: <span>{certification}</span></p>
                         <p className='profile__years'>Years of experience: <span>{yearsExperience}</span></p>
-                    </div>
+                    </div> */}
                     <div className='profile__personal-details'>
-                        <p className='profile__about'>About: This is an about section and will need to be populated with information from the backend in the JSON file</p>
+                        <p className='profile__about'>{about}</p>
                     </div>
                 </article>
                 <div className='profile__link-container'>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import MarineData from '../../components/MarineData/MarineData';
+import './SearchPage.scss';
 
 export default class SearchPage extends Component {
 
@@ -43,11 +44,13 @@ export default class SearchPage extends Component {
         if (this.state.location === null) {
             return (
                 <>
-                    <form onSubmit={this.handleSearch} id='searchForm'>
-                        <label htmlFor="">Search for a location</label>
-                        <input type="search" name='search' id='search' />
+                    <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
+                        <label className='place-search__label' htmlFor="">Search for a location</label>
+                        <div>
+                            <input className='place-search__input' type="search" name='search' id='search' />
+                            <button className='place-search__button' form='searchForm'>Search</button>
+                        </div>
                     </form>
-                    <button form='searchForm'>Search</button>
                 </>
             )
         };
@@ -57,19 +60,23 @@ export default class SearchPage extends Component {
 
         return (
             <>
-                <form onSubmit={this.handleSearch} id='searchForm'>
-                    <label htmlFor="">Search for a location</label>
-                    <input type="search" name='search' id='search' />
+                <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
+                    <label className='place-search__label' htmlFor="">Search for a location</label>
+                    <div>
+                        <input className='place-search__input' type="search" name='search' id='search' />
+                        <button className='place-search__button' form='searchForm'>Search</button>
+                    </div>
                 </form>
-                <button form='searchForm'>Search</button>
-                <div>
-                    <h2>{name}, {country}</h2>
-                    <p>Conditions: {this.state.location.current.condition.text}</p>
-                    <p>Temperature: {temp_c}</p>
-                    <p>Visibility: {vis_km}km</p>
-                    <p>Wind: {wind_kph}km {wind_dir}</p>
+                <h2 className='place'>{name}, {country}</h2>
+                <div className='weather'>
+                    <div className='weather__container'>
+                        <p className='weather__subtitle'>conditions: <span className='weather__details'>{this.state.location.current.condition.text}</span></p>
+                        <p className='weather__subtitle'>temperature: <span className='weather__details'>{temp_c}°C</span></p>
+                        <p className='weather__subtitle'>visibility: <span className='weather__details'>{vis_km}km</span> </p>
+                        <p className='weather__subtitle'>wind: <span className='weather__details'>{wind_kph}km {wind_dir}</span></p>
+                    </div>
+                    <button className='weather__button' onClick={this.handleMarineSearch}>Marine Info</button>
                 </div>
-                <button onClick={this.handleMarineSearch}>Marine Info</button>
                 {this.state.marineData && <MarineData hourlyData={this.state.marineData}/>}
             </>
         );

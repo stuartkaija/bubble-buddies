@@ -3,7 +3,6 @@ import TinderCard from 'react-tinder-card';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
 import './FindBuddyPage.scss';
 
-import demoPic from '../../assets/photos/sebastian-pena-lambarri-7i5HMCGupVw-unsplash.jpg';
 import axios from 'axios';
 
 export default class FindBuddyPage extends Component {
@@ -60,6 +59,7 @@ export default class FindBuddyPage extends Component {
                             preventSwipe={['up', 'down']}>
                             <DisplayPicture 
                                 className='buddy-container__picture'
+                                displayPicture={user.displayPicture}
                                 name={user.firstName}
                                 certification={user.certification}
                                 experience={user.yearsExperience}
