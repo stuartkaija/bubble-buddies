@@ -11,4 +11,23 @@
     &__title {
         color: $color-text-primary;
     }
+
+    &__menu-button{
+        background-color: $color-background-secondary;
+        border: none;
+    }
+
+    &__hidden-menu {
+        display: none;
+    }
+
+    &__menu-links {
+        text-decoration: none;
+        color: $color-text-primary;
+
+        &:visited {
+            text-decoration: none;
+            color: $color-text-tertiary;
+        }
+    }
 }
