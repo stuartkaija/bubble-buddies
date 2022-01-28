@@ -38,7 +38,7 @@ export default class SignUp extends Component {
                 password: event.target.password.value,
                 certification: "",
                 yearsExperience: null,
-                displayPicture: ""
+                displayPicture: "/photos/default_profile.jpeg"
             })
             .then(() => {
                 this.setState({
