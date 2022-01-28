@@ -48,13 +48,12 @@ export default class SearchPage extends Component {
                         <input type="search" name='search' id='search' />
                     </form>
                     <button form='searchForm'>Search</button>
-                    <MarineData hourlyData={this.state.marineData} />
-
                 </>
             )
         };
 
-        // const { conditions, temperature, visibility, wind } = this.state.location.current
+        const { temp_c, vis_km, wind_kph, wind_dir } = this.state.location.current
+        const { name, country } = this.state.location.location
 
         return (
             <>
@@ -64,10 +63,11 @@ export default class SearchPage extends Component {
                 </form>
                 <button form='searchForm'>Search</button>
                 <div>
+                    <h2>{name}, {country}</h2>
                     <p>Conditions: {this.state.location.current.condition.text}</p>
-                    <p>Temperature: {this.state.location.current.temp_c}</p>
-                    <p>Visibility: {this.state.location.current.vis_km}km</p>
-                    <p>Wind: {this.state.location.current.wind_kph}km {this.state.location.current.wind_dir}</p>
+                    <p>Temperature: {temp_c}</p>
+                    <p>Visibility: {vis_km}km</p>
+                    <p>Wind: {wind_kph}km {wind_dir}</p>
                 </div>
                 <button onClick={this.handleMarineSearch}>Marine Info</button>
                 {this.state.marineData && <MarineData hourlyData={this.state.marineData}/>}

@@ -1,7 +1,7 @@
 @use '../../styles/partials/variables' as *;
 
 .data {
-    background-color: rgb(62, 64, 216);
+    // background-color: rgb(62, 64, 216);
 
     &__titles {
         display: flex;
@@ -10,7 +10,7 @@
     }
 
     &__title {
-        width: 16%;
+        width: 20%;
         margin: 1rem 0rem;
     }
 
@@ -20,6 +20,6 @@
     }
 
     &__info {
-        width: 16%;
+        width: 20%;
     }
 }
