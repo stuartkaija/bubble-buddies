@@ -1,0 +1,25 @@
+@use '../../styles/partials/variables' as *;
+
+.data {
+    // background-color: rgb(62, 64, 216);
+
+    &__titles {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.15rem;
+    }
+
+    &__title {
+        width: 20%;
+        margin: 1rem 0rem;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__info {
+        width: 20%;
+    }
+}
