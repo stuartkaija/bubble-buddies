@@ -8,7 +8,6 @@ export default function MarineData(hourlyData) {
 
     return (
         <div className='data'>
-            <h1>Hello Marine Data!</h1>
             <div className='data__titles'>
                 <h6 className='data__title'>Time (24hr)</h6>
                 <h6 className='data__title'>Swell Direction</h6>

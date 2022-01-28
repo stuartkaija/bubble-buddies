@@ -1,4 +1,6 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
 
 .data {
     // background-color: rgb(62, 64, 216);
@@ -6,7 +8,7 @@
     &__titles {
         display: flex;
         justify-content: space-between;
-        font-size: 1.15rem;
+        font-size: 1.4rem;
     }
 
     &__title {
