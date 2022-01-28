@@ -88,7 +88,6 @@ router.post('/login', (req, res) => {
     }
 
     const foundUser = findUser(email);
-    console.log(foundUser);
     if (!foundUser) {
         res.status(400).send("No user found.")
     }
@@ -97,7 +96,6 @@ router.post('/login', (req, res) => {
     if (!checkPassword) {return res.status(400).send('Invalid password.')}
     
     const userId = foundUser.id;
-    console.log(userId);
 
     const token = jwt.sign(
         {id: foundUser.id, email: foundUser.email},
@@ -108,12 +106,18 @@ router.post('/login', (req, res) => {
     res.json({token: token, userId: userId});
 });
 
+// put endpoint for adding users from find buddy page
+router.put('/swipe', (req, res) => {
+    // from front end - logged in user, potential buddy, direction of swipe
+    const { user, buddy, direction } = req.body
+    console.log(user, buddy, direction);
+    // filter out logged in user, based on id
+
+    //
+});
 
 
-
-
-
-// put endpoint for editing existing user
+// put endpoint for editing existing user profile
 router.put('/current', (req, res) => {
     console.log("put endpoint for editing user");
 });

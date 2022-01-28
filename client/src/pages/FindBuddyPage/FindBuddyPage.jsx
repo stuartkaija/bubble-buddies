@@ -29,23 +29,38 @@ export default class FindBuddyPage extends Component {
     
     // Callback that will be executed when a swipe has been completed. It will be called with a single string denoting which direction the swipe was in: 'left', 'right', 'up' or 'down'.
     // conditional statement whether direction is left or right i.e. if left add user to rightarray and vice versa
-    onSwipe = (direction) => {
-        console.log('You swiped: ' + direction)
+    // onSwipe = (direction) => {
+    //     console.log(direction);
+    //     axios
+    //         .put('http://localhost:8080/users/swipe', {
+    //             user: this.state.userId,
+    //             direction: direction
+    //         })
+    //         .then(res => console.log(res))
+    //         .catch(error => console.log(error));
+
+    // }
+
+    swiped = (direction, buddy) => {
+        console.log(direction, buddy);
+        axios
+            .put('http://localhost:8080/users/swipe', {
+                    user: this.state.userId,
+                    buddy: buddy,
+                    direction: direction
+                })
+                .then(res => console.log(res))
+                .catch(error => console.log(error));
     }
 
     // Callback that will be executed when a TinderCard has left the screen. It will be called with a single string denoting which direction the swipe was in: 'left', 'right', 'up' or 'down'.
     onCardLeftScreen = (myIdentifier) => {
-        console.log(myIdentifier + ' left the screen')
-      }
+            console.log(myIdentifier + ' left the screen')
+        }
 
     render() {
 
-        // console.log(this.state.users);
-        // console.log(this.state.userId);
-        // console.log(this.state.filteredUsers);
-
         const filteredUsers = this.state.users.filter(user => user.id !== this.state.userId);
-        console.log(filteredUsers);
 
         return (
             <div className='buddy-container'>
@@ -54,8 +69,8 @@ export default class FindBuddyPage extends Component {
                         <TinderCard
                             key={user.id}
                             className='buddy-container__tindercard'
-                            onSwipe={this.onSwipe}
-                            onCardLeftScreen={() => this.onCardLeftScreen('fooBar')}
+                            onSwipe={(dir) => {this.swiped(dir, user.id)}}
+                            onCardLeftScreen={() => this.onCardLeftScreen(user.firstName)}
                             preventSwipe={['up', 'down']}>
                             <DisplayPicture 
                                 className='buddy-container__picture'
