@@ -129,15 +129,13 @@ router.put('/swipe', (req, res) => {
             if (direction === 'right') {
                 user.swipeRight.push(potentialBuddy.firstName);
                 // splice updated user object back into users array
-                users.splice(users[i], 1, user);
-                console.log(users);
-                fs.writeFileSync("./data/users.json", JSON.stringify(users));
+                users.splice(users[i], 1, user);                console.log(users);
+                // fs.writeFileSync("./data/users.json", JSON.stringify(users));
             };
             if (direction === 'left') {
                 user.swipeLeft.push(potentialBuddy.firstName);
                 users.splice(users[i], 1, user);
-                console.log(users);
-                fs.writeFileSync("./data/users.json", JSON.stringify(users));
+                // fs.writeFileSync("./data/users.json", JSON.stringify(users));
             };
         }
     }

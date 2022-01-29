@@ -1,6 +1,23 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
 
+.catch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__sentence {
+        font-weight: normal;
+        color: $color-fail;
+        padding-bottom: 1rem;
+    }
+
+    &__button {
+        @include button;
+        text-decoration: none;
+    }
+}
+
 .profile {
     display: flex;
     flex-direction: column;

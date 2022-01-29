@@ -45,7 +45,10 @@ export default class ProfilePage extends Component {
     render() {
         if (this.state.failedAuth || !this.state.user) {
             return (
-                <div>You must be logged in to see this page. <Link to='/'>Log In</Link></div>
+                <div className='catch'>
+                    <p className='catch__sentence'>You must be logged in to see this page.</p>
+                    <Link className='catch__button' to='/'>Log In</Link>
+                </div>
             )
         }
 
