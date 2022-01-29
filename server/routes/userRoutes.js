@@ -109,13 +109,41 @@ router.post('/login', (req, res) => {
 // put endpoint for adding users from find buddy page
 router.put('/swipe', (req, res) => {
     // from front end - logged in user, potential buddy, direction of swipe
-    const { user, buddy, direction } = req.body
-    console.log(user, buddy, direction);
-    // filter out logged in user, based on id
+    const { userId, buddy, direction } = req.body
+    console.log(userId, buddy, direction);
 
-    //
+    // get array of users, filter out logged in user
+    // const potentialBuddies = readUsers().filter(buddy => buddy.id !== userId); don't think I need this
+    // find logged in user from array
+    const users = readUsers();
+
+    const user = readUsers().find(user => user.id === userId);
+    // console.log(user);
+
+    const potentialBuddy = readUsers().find(user => user.id === buddy);
+    // console.log(potentialBuddy);
+
+    for (let i = 0; i < users.length; i++) {
+        // find correct user
+        if (users[i].id === userId) {
+            if (direction === 'right') {
+                user.swipeRight.push(potentialBuddy.firstName);
+                // splice updated user object back into users array
+                users.splice(users[i], 1, user);
+                console.log(users);
+                fs.writeFileSync("./data/users.json", JSON.stringify(users));
+            };
+            if (direction === 'left') {
+                user.swipeLeft.push(potentialBuddy.firstName);
+                users.splice(users[i], 1, user);
+                console.log(users);
+                fs.writeFileSync("./data/users.json", JSON.stringify(users));
+            };
+        }
+    }
+
+    res.status(201).send('Swipe registered');
 });
-
 
 // put endpoint for editing existing user profile
 router.put('/current', (req, res) => {

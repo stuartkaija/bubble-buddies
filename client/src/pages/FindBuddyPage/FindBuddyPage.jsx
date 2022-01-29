@@ -45,7 +45,7 @@ export default class FindBuddyPage extends Component {
         console.log(direction, buddy);
         axios
             .put('http://localhost:8080/users/swipe', {
-                    user: this.state.userId,
+                    userId: this.state.userId,
                     buddy: buddy,
                     direction: direction
                 })
