@@ -13,6 +13,9 @@ export default class SearchPage extends Component {
 
     handleSearch = (event) => {
         event.preventDefault();
+
+        if (this.state.marineData) {this.setState({marineData: null})};
+
         const userInput = event.target.search.value
         axios
             .post("http://localhost:8080/weather", {
