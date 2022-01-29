@@ -88,7 +88,6 @@ router.post('/login', (req, res) => {
     }
 
     const foundUser = findUser(email);
-    console.log(foundUser);
     if (!foundUser) {
         res.status(400).send("No user found.")
     }
@@ -97,7 +96,6 @@ router.post('/login', (req, res) => {
     if (!checkPassword) {return res.status(400).send('Invalid password.')}
     
     const userId = foundUser.id;
-    console.log(userId);
 
     const token = jwt.sign(
         {id: foundUser.id, email: foundUser.email},
@@ -108,12 +106,46 @@ router.post('/login', (req, res) => {
     res.json({token: token, userId: userId});
 });
 
+// put endpoint for adding users from find buddy page
+router.put('/swipe', (req, res) => {
+    // from front end - logged in user, potential buddy, direction of swipe
+    const { userId, buddy, direction } = req.body
+    console.log(userId, buddy, direction);
 
+    // get array of users, filter out logged in user
+    // const potentialBuddies = readUsers().filter(buddy => buddy.id !== userId); don't think I need this
+    // find logged in user from array
+    const users = readUsers();
 
+    const user = readUsers().find(user => user.id === userId);
+    // console.log(user);
 
+    const potentialBuddy = readUsers().find(user => user.id === buddy);
+    // console.log(potentialBuddy);
 
+    for (let i = 0; i < users.length; i++) {
+        // find correct user
+        if (users[i].id === userId) {
+            if (direction === 'right') {
+                user.swipeRight.push(potentialBuddy.firstName);
+                // splice updated user object back into users array
+                users.splice(users[i], 1, user);
+                console.log(users);
+                fs.writeFileSync("./data/users.json", JSON.stringify(users));
+            };
+            if (direction === 'left') {
+                user.swipeLeft.push(potentialBuddy.firstName);
+                users.splice(users[i], 1, user);
+                console.log(users);
+                fs.writeFileSync("./data/users.json", JSON.stringify(users));
+            };
+        }
+    }
 
-// put endpoint for editing existing user
+    res.status(201).send('Swipe registered');
+});
+
+// put endpoint for editing existing user profile
 router.put('/current', (req, res) => {
     console.log("put endpoint for editing user");
 });
