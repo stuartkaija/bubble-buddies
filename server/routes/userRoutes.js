@@ -27,12 +27,6 @@ router.get('/', (req, res) => {
 
 // get endpoint specific user
 router.get('/current', (req, res) => {
-    // const id = req.params.userId;
-    // const foundUser = findUser(id);
-    // if (!foundUser) {
-    //     res.status(400).json("user not found");
-    // }
-    // res.status(200).json(foundUser);
     const authToken = req.headers.authorization.split(" ")[1];
 
     //verify token
