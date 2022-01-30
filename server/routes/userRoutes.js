@@ -68,7 +68,7 @@ router.post('/signup', (req, res) => {
     const userData = readUsers();
     userData.push(newUser);
     console.log(userData);
-    fs.writeFileSync('./data/users.json', JSON.stringify(userData));
+    // fs.writeFileSync('./data/users.json', JSON.stringify(userData));
 
     res.status(201).send("registration successful!");
 });
@@ -104,7 +104,6 @@ router.post('/login', (req, res) => {
 router.put('/swipe', (req, res) => {
     // from front end - logged in user, potential buddy, direction of swipe
     const { userId, buddy, direction } = req.body
-    console.log(userId, buddy, direction);
 
     // get array of users, filter out logged in user
     // const potentialBuddies = readUsers().filter(buddy => buddy.id !== userId); don't think I need this
@@ -123,7 +122,7 @@ router.put('/swipe', (req, res) => {
             if (direction === 'right') {
                 user.swipeRight.push(potentialBuddy.firstName);
                 // splice updated user object back into users array
-                users.splice(users[i], 1, user);                console.log(users);
+                users.splice(users[i], 1, user);
                 // fs.writeFileSync("./data/users.json", JSON.stringify(users));
             };
             if (direction === 'left') {
@@ -138,8 +137,27 @@ router.put('/swipe', (req, res) => {
 });
 
 // put endpoint for editing existing user profile
-router.put('/current', (req, res) => {
-    console.log("put endpoint for editing user");
+router.put('/edit', (req, res) => {
+    const { id, firstName, lastName, certification, yearsExperience, about } = req.body
+    
+    const users = readUsers();
+
+    const user = readUsers().find(user => user.id === id);
+
+    const index = readUsers().findIndex(user => user.id === id)
+
+    user.id = id,
+    user.firstName = firstName,
+    user.lastName = lastName,
+    user.certification = certification,
+    user.yearsExperience = yearsExperience,
+    user.about = about
+
+    users.splice(index, 1, user);
+
+    fs.writeFileSync("./data/users.json", JSON.stringify(users));
+
+    res.status(200).send('Edited profile')
 });
 
 // delete endpoint for deleting user

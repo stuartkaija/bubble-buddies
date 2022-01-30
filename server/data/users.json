@@ -3,14 +3,14 @@
         "id": "111sxewukwukyuvpjt6",
         "email": "greg@email.com",
         "firstName": "Greg",
-        "lastName": "Jackson",
+        "lastName": "Gergson",
         "password": "$2b$10$Gi3K6M8hzofuFc2UYVm13OSnv4ZwJGByxl0fIZrJBsLVf7Gk5fBBW",
         "certification": "Divemaster",
-        "yearsExperience": 5,
+        "yearsExperience": "2",
         "displayPicture": "https://images.unsplash.com/photo-1564381564020-17161124fff1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
         "swipeRight": [],
         "swipeLeft": [],
-        "about": "I've been scuba diving for 5 years, and my favorite fish is the rainbow trout. Favorite place to dive? It's gotta be the tropical waters of the Andaman Sea."
+        "about": "Diving is a really great activity, being under the sea, hanging out with the fish, there ain't nothing better!"
     },
     {
         "id": "111sxewukxdkyuvpva7",
@@ -102,5 +102,18 @@
         "swipeRight": [],
         "swipeLeft": [],
         "about": "Life is but a dream."
+    },
+    {
+        "id": "111sxewua1kz0ex1sh",
+        "email": "test@email.com",
+        "firstName": "Peter",
+        "lastName": "Moore",
+        "password": "$2b$10$BUyXygyMBKS.y5P6of.l/uWQfpMvSIQlJzRvSMgyybRyhLyKuaglW",
+        "certification": "Divemaster",
+        "yearsExperience": "3",
+        "displayPicture": "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
+        "rightUsers": [],
+        "leftUsers": [],
+        "about": "I am the best dive master in the world!"
     }
 ]

@@ -69,14 +69,15 @@ export default class ProfilePage extends Component {
                     experience={yearsExperience}
                     />
                 <article className='profile__info-card'>
-                    {/* <div className='profile__personal-details'>
-                        <p className='profile__user-name'>{firstName} {lastName}</p>
-                        <p className='profile__cert'>Certification: <span>{certification}</span></p>
-                        <p className='profile__years'>Years of experience: <span>{yearsExperience}</span></p>
-                    </div> */}
-                    <div className='profile__personal-details'>
                         <p className='profile__about'>{about}</p>
-                    </div>
+                        <Link 
+                            className='profile__edit-link'
+                            to={{
+                                pathname: '/' + id + '/edit',
+                                user: id    // this passes in user id to edit profile page, so as to identify logged in user
+                            }}>
+                            <button className='profile__edit-button'>Edit Profile</button>
+                        </Link>
                 </article>
                 <div className='profile__link-container'>
                     <Link to='/search' className='profile__link'>Search for a dive location!</Link>
