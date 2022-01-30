@@ -139,6 +139,8 @@ router.put('/swipe', (req, res) => {
 // put endpoint for editing existing user profile
 router.put('/edit', (req, res) => {
     const { id, firstName, lastName, certification, yearsExperience, about } = req.body
+
+    console.log(yearsExperience);
     
     const users = readUsers();
 
@@ -147,17 +149,17 @@ router.put('/edit', (req, res) => {
     const index = readUsers().findIndex(user => user.id === id)
 
     user.id = id,
-    user.firstName = firstName,
-    user.lastName = lastName,
-    user.certification = certification,
-    user.yearsExperience = yearsExperience,
+    user.firstName = firstName
+    user.lastName = lastName
+    user.certification = certification
+    user.yearsExperience = yearsExperience
     user.about = about
 
     users.splice(index, 1, user);
 
-    fs.writeFileSync("./data/users.json", JSON.stringify(users));
+    // fs.writeFileSync("./data/users.json", JSON.stringify(users));
 
-    res.status(200).send('Edited profile')
+    res.status(200).send('Edited profile successfully')
 });
 
 // delete endpoint for deleting user
