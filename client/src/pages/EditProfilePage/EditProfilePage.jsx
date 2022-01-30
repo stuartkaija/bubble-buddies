@@ -15,6 +15,8 @@ export default class EditProfilePage extends Component {
 
         const { firstname, lastname, exp, cert, about } = event.target
 
+        console.log(exp.value);
+
         axios
             .put('http://localhost:8080/users/edit', {
                 id: this.props.location.user,
@@ -30,7 +32,6 @@ export default class EditProfilePage extends Component {
 
     };
 
-    
     render() {
 
         return (
@@ -39,8 +40,26 @@ export default class EditProfilePage extends Component {
                 <form onSubmit={this.handleEditSubmit} className='edit__form' action="" id='edit-profile'>
                     <Input label='First Name' type='text' name='firstname' id='firstname' />
                     <Input label='Last Name' type='text' name='lastname' id='lastname' />
-                    <Input label='Years of Experience' type='text' name='exp' id='exp' />
-                    <Input label='Certification' type='text' name='cert' id='cert' />
+                    <div className='edit__years-container'>
+                        <label className='edit__years-label' htmlFor="exp">Years Experience</label>
+                        <select className='edit__years-select' name="exp" id="exp" defaultValue='0-2'>
+                            <option value="0-2">0-2</option>
+                            <option value="3-5">3-5</option>
+                            <option value="6-9">6-9</option>
+                            <option value="10+">10+</option>
+                        </select>
+                    </div>
+                    <div className='edit__cert-container'>
+                        <label className='edit__cert-label' htmlFor="cert">Certification</label>
+                        <select className='edit__cert-select' name="cert" id="cert" defaultValue='New Diver'>
+                            <option value="New Diver">New Diver</option>
+                            <option value="Open Water Diver">Open Water Diver</option>
+                            <option value="Adventure Diver">Adventure Diver</option>
+                            <option value="Advanced Open Water">Advanced Open Water</option>
+                            <option value="Rescue Diver">Rescue Diver</option>
+                            <option value="Master Scuba Diver">Master Scuba Diver</option>
+                        </select>
+                    </div>
                     <label className='edit__about-label' htmlFor="about">Share some fun facts about yourself here!</label>
                     <textarea className='edit__about-input' name="about" id="about" cols="30" rows="7"></textarea>
                 </form>
