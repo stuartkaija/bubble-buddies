@@ -58,9 +58,9 @@ export default class SignUp extends Component {
             <div className='sign-up'>
                 <p className='sign-up__title'>Sign Up</p>
                 <form onSubmit={this.handleSubmit} className='sign-up__form' id="signup">
-                    <input className='sign-up__email' type="text" name='email' id='email' placeholder='Email' />
-                    <input className='sign-up__password' type="password" name='password' id='password' placeholder='Password' />
-                    <input className='sign-up__password' type="password" name='confirmPassword' id='confirmPassword' placeholder='Confirm Password' />
+                    <input className='sign-up__email' type="text" name='email' id='email' placeholder='EMAIL' />
+                    <input className='sign-up__password' type="password" name='password' id='password' placeholder='PASSWORD' />
+                    <input className='sign-up__password' type="password" name='confirmPassword' id='confirmPassword' placeholder='CONFIRM PASSWORD' />
                 </form>
                 <button className='sign-up__button' form='signup'>Sign Up</button>
                 <div className='sign-up__container'>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ProfilePage.scss';
+import Header from '../../components/Header/Header';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -62,6 +63,7 @@ export default class ProfilePage extends Component {
 
         return (
             <div className='profile'>
+                <Header />
                 <DisplayPicture 
                     displayPicture={displayPicture}
                     name={firstName + " " + lastName}
