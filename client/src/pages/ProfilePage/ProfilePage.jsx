@@ -63,7 +63,10 @@ export default class ProfilePage extends Component {
 
         return (
             <div className='profile'>
-                <Header />
+                <Header 
+                    logout={this.handleLogout}
+                    id={id}
+                    />
                 <DisplayPicture 
                     displayPicture={displayPicture}
                     name={firstName + " " + lastName}
@@ -72,20 +75,20 @@ export default class ProfilePage extends Component {
                     />
                 <article className='profile__info-card'>
                         <p className='profile__about'>{about}</p>
-                        <Link 
+                        {/* <Link 
                             className='profile__edit-link'
                             to={{
                                 pathname: '/' + id + '/edit',
                                 user: id    // this passes in user id to edit profile page, so as to identify logged in user
                             }}>
                             <button className='profile__edit-button'>Edit Profile</button>
-                        </Link>
+                        </Link> */}
                 </article>
                 <div className='profile__link-container'>
                     <Link to='/search' className='profile__link'>Search for a dive location!</Link>
                     <Link to={'/' + id + '/find'} className='profile__link'>Find a buddy!</Link>
                 </div>
-                <button className='profile__logout' onClick={this.handleLogout}>Log Out</button>
+                {/* <button className='profile__logout' onClick={this.handleLogout}>Log Out</button> */}
             </div>
         );
     }

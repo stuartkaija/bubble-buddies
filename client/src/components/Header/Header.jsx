@@ -19,18 +19,23 @@ export default class Header extends Component {
     };
 
     render() {
+
+        const { id, logout } = this.props
+
         return (
             <nav className='header-nav'>
-                <Link to ='/'>
+                <Link className='header-nav__link' to ='/'>
                     <img src={arrow} alt="back arrow icon" />
                 </Link>
                 <h1 className='header-nav__title'>Bubble Buddies</h1>
-                <button className='header-nav__menu-button' onClick={this.openMenu}><WaterIcon className='test'/></button>
+                <button className='header-nav__menu-button' onClick={this.openMenu}><WaterIcon className='header-nav__burger'/></button>
                 <div id='hidden-menu' className={this.state.menu ? 'header-nav__visible-menu' : 'header-nav__hidden-menu'}>
-                    <Link className='header-nav__menu-links' to=''>find a buddy</Link>
-                    <Link className='header-nav__menu-links' to=''>search for a spot</Link>
-                    <Link className='header-nav__menu-links' to=''>edit profile</Link>
-                    <Link className='header-nav__menu-links' to=''>logout</Link>
+                    <Link className='header-nav__menu-links' to={{
+                                pathname: '/' + id + '/edit',
+                                user: id    // this passes in user id to edit profile page, so as to identify logged in user
+                            }}>edit profile</Link>
+                    <Link className='header-nav__menu-links' to=''>settings</Link>
+                    <button onClick={logout} className='header-nav__menu-links--button'>logout</button>
                 </div>
             </nav>
         );
