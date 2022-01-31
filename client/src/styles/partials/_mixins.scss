@@ -1,2 +1,32 @@
 @use './variables' as *;
 
+@mixin button {
+    font-family: 'Montserrat';
+        border: none;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem;
+        background: $color-accent-primary;
+        color: $color-text-primary;
+        margin: 0.5rem;
+
+        &:hover {
+            background-color: $color-accent-secondary;
+        }
+}
+
+@mixin input {
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    max-width: 11rem;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: $color-text-tertiary;
+        font-family: 'Montserrat';
+        font-size: 0.65rem;
+    }
+}

@@ -1,0 +1,73 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    
+    &__title {
+        text-align: center;
+    }
+
+    &__years-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0rem 3rem;
+    }
+
+    &__years-label {
+        font-weight: bold;
+        padding-top: 1rem;
+
+    }
+
+    &__years-select {
+        @include input;
+        margin: 0.5rem 0rem;
+        width: 12rem;
+        background-color: $color-text-primary;
+    }
+
+    &__cert-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0rem 3rem;
+    }
+
+    &__cert-label {
+        font-weight: bold;
+        padding-top: 1rem;
+    }
+
+    &__cert-select {
+        @include input;
+        margin: 0.5rem 0rem;
+        background-color: $color-text-primary;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__about-label {
+        text-align: center;
+        margin-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__about-input {
+        resize: none;
+        border-radius: 0.75rem;
+        font-family: 'Montserrat';
+        padding: 0.75rem;
+        outline: none;
+    }
+
+    &__button {
+        @include button;
+        height: 2rem;
+        width: 6rem;
+        margin-left: auto;
+    }
+}

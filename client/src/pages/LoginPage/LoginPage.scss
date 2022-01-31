@@ -1,4 +1,5 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .login {
     display: flex;
@@ -19,49 +20,15 @@
     }
 
     &__email {
-        border: none;
-        border-radius: 2rem;
-        padding: 0.5rem 1rem;
-
-        &:focus {
-            outline: none;
-        }
-
-        &::placeholder {
-            color: $color-text-tertiary;
-            font-family: 'Montserrat';
-            font-size: 0.65rem;
-        }
+        @include input;
     }
 
     &__password {
-        border: none;
-        border-radius: 2rem;
-        padding: 0.5rem 1rem;
-
-        &:focus {
-            outline: none;
-        }
-
-        &::placeholder {
-            color: $color-text-tertiary;
-            font-family: 'Montserrat';
-            font-size: 0.65rem;
-        }
+        @include input;
     }
     
     &__button {
-        font-family: 'Montserrat';
-        border: none;
-        border-radius: 2rem;
-        padding: 0.5rem 1rem;
-        margin: 0.5rem 0rem;
-        background: $color-accent-primary;
-        color: $color-text-primary;
-
-        &:hover {
-            background-color: $color-accent-secondary;
-        }
+        @include button;
     }
 
     &__container {

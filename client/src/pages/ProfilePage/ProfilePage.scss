@@ -1,4 +1,22 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.catch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__sentence {
+        font-weight: normal;
+        color: $color-fail;
+        padding-bottom: 1rem;
+    }
+
+    &__button {
+        @include button;
+        text-decoration: none;
+    }
+}
 
 .profile {
     display: flex;
@@ -9,15 +27,21 @@
         width: 100%;
         padding: 1rem;
         border-radius: 0.25rem;
-        // margin: 1rem 0rem;
         box-shadow: 0px 0px 10px 0.1px $color-background-secondary;
         font-size: 1rem;
     }
 
-    &__personal-details {
-        padding: 1rem 0rem;
-        // border-bottom: 1px solid $color-accent-primary;
-        // border-top: 1px solid $color-accent-primary;
+    &__about {
+        padding-bottom: 1rem;
+    }
+
+    &__edit-link {
+        height: 1rem
+    }
+
+    &__edit-button {
+        @include button;
+        border-radius: 0.25rem;
     }
 
     &__user-name {
@@ -31,17 +55,18 @@
         width: 100%;
     }
     &__link {
+        color: $color-text-primary;
         background-color: $color-background-secondary;
-        padding: 0.5rem;
+        padding: 1.5rem;
         border: 0.01rem solid $color-success;
         width: 100%;
+        text-decoration: none;
         text-align: center;
         text-transform: lowercase;
         text-decoration: none;
         
         &:visited {
             text-decoration: none;
-            color: $color-text-tertiary;
         }
 
         &:hover {
@@ -50,12 +75,6 @@
     }
 
     &__logout {
-        padding: 0.25rem 1rem;
-        margin-top: 2rem;
-        background-color: $color-background-secondary;
-        border: none;
-        font-family: 'Montserrat';
-        font-size: 0.75rem;
-        color: $color-text-secondary;
+        @include button;
     }
 }
