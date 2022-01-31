@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from '../../components/Header/Header';
 import MarineData from '../../components/MarineData/MarineData';
 import './SearchPage.scss';
 
@@ -47,6 +48,7 @@ export default class SearchPage extends Component {
         if (this.state.location === null) {
             return (
                 <>
+                    <Header />
                     <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
                         <label className='place-search__label' htmlFor="">Search for a location</label>
                         <div>
@@ -63,7 +65,10 @@ export default class SearchPage extends Component {
 
         return (
             <>
-                <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
+                <Header 
+                    // logout={this.handleLogout}
+                    // id={id}
+                    />                <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
                     <label className='place-search__label' htmlFor="">Search for a location</label>
                     <div>
                         <input className='place-search__input' type="search" name='search' id='search' />

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './ProfilePage.scss';
 import Header from '../../components/Header/Header';
+import HeaderLoggedOut from '../../components/HeaderLoggedOut/HeaderLoggedOut';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -47,6 +48,7 @@ export default class ProfilePage extends Component {
         if (this.state.failedAuth || !this.state.user) {
             return (
                 <div className='catch'>
+                    <HeaderLoggedOut />
                     <p className='catch__sentence'>You must be logged in to see this page.</p>
                     <Link className='catch__button' to='/'>Log In</Link>
                 </div>
@@ -60,6 +62,9 @@ export default class ProfilePage extends Component {
         }
 
         const { displayPicture, id, firstName, lastName, certification, yearsExperience, about } = this.state.user
+
+        console.log(this.props.match);
+        console.log(this.props.history);
 
         return (
             <div className='profile'>

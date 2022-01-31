@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import uniqid from 'uniqid';
+import HeaderLoggedOut from '../../components/HeaderLoggedOut/HeaderLoggedOut';
 import './SignUpPage.scss';
 
 export default class SignUp extends Component {
@@ -56,6 +57,7 @@ export default class SignUp extends Component {
     render() {
         return (
             <div className='sign-up'>
+                <HeaderLoggedOut />
                 <p className='sign-up__title'>Sign Up</p>
                 <form onSubmit={this.handleSubmit} className='sign-up__form' id="signup">
                     <input className='sign-up__email' type="text" name='email' id='email' placeholder='EMAIL' />
