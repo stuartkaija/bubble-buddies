@@ -29,7 +29,6 @@ export default class SignUp extends Component {
             return alert ('passwords do not match');
         }
 
-        // axios post request here to the back end to post newly signed up user to JSON data
         axios
             .post('http://localhost:8080/users/signup', {
                 id: uniqid(),
