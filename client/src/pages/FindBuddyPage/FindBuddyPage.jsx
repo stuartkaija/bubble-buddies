@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TinderCard from 'react-tinder-card';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
+import Header from '../../components/Header/Header';
 import './FindBuddyPage.scss';
 
 import axios from 'axios';
@@ -64,24 +65,28 @@ export default class FindBuddyPage extends Component {
 
         return (
             <div className='buddy-container'>
-                {filteredUsers.map((user) => {
-                    return (
-                        <TinderCard
-                            key={user.id}
-                            className='buddy-container__tindercard'
-                            onSwipe={(dir) => {this.swiped(dir, user.id)}}
-                            onCardLeftScreen={() => this.onCardLeftScreen(user.firstName)}
-                            preventSwipe={['up', 'down']}>
-                            <DisplayPicture 
-                                className='buddy-container__picture'
-                                displayPicture={user.displayPicture}
-                                name={user.firstName}
-                                certification={user.certification}
-                                experience={user.yearsExperience}
-                                />
-                        </TinderCard>
-                    )
-                })}
+                <Header 
+                    // logout={this.handleLogout}
+                    id={this.state.userId}
+                    />                
+                    {filteredUsers.map((user) => {
+                        return (
+                            <TinderCard
+                                key={user.id}
+                                className='buddy-container__tindercard'
+                                onSwipe={(dir) => {this.swiped(dir, user.id)}}
+                                onCardLeftScreen={() => this.onCardLeftScreen(user.firstName)}
+                                preventSwipe={['up', 'down']}>
+                                <DisplayPicture 
+                                    className='buddy-container__picture'
+                                    displayPicture={user.displayPicture}
+                                    name={user.firstName}
+                                    certification={user.certification}
+                                    experience={user.yearsExperience}
+                                    />
+                            </TinderCard>
+                        )
+                    })}
             </div>
         );
     }

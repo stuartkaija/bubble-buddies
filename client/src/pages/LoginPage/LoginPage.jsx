@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import HeaderLoggedOut from '../../components/HeaderLoggedOut/HeaderLoggedOut';
 import './LoginPage.scss';
 
 export default class LoginPage extends Component {
@@ -38,6 +39,7 @@ export default class LoginPage extends Component {
     render() {
         return (
             <div className='login'>
+                <HeaderLoggedOut />
                 <p className='login__title'>Log In</p>
                 <form onSubmit={this.handleSubmit} className='login__form' id='login'>
                     <input className='login__email' type="text" id='email' name='email' placeholder='EMAIL' />

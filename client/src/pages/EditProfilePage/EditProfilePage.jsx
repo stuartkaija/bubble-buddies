@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import Input from '../../components/Input/Input';
+import Header from '../../components/Header/Header';
 import './EditProfilePage.scss';
 
 export default class EditProfilePage extends Component {
@@ -33,9 +34,14 @@ export default class EditProfilePage extends Component {
     };
 
     render() {
+        console.log(this.props.match.params.userId);
 
         return (
             <div className='edit'>
+                <Header 
+                    // logout={this.handleLogout}
+                    id={this.props.match.params.userId}
+                    />
                 <h2 className='edit__title'>Edit your profile</h2>
                 <form onSubmit={this.handleEditSubmit} className='edit__form' action="" id='edit-profile'>
                     <Input label='First Name' type='text' name='firstname' id='firstname' />

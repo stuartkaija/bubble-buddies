@@ -10,9 +10,10 @@ import SearchPage from './pages/SearchPage/SearchPage';
 
 
 function App() {
+
     return (
         <BrowserRouter>
-            <Header />
+            {/* <Header /> */}
             <div className='app'>
                 <Switch>
                     <Route path='/' exact component={LoginPage} />

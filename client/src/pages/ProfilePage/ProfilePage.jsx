@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './ProfilePage.scss';
+import Header from '../../components/Header/Header';
+import HeaderLoggedOut from '../../components/HeaderLoggedOut/HeaderLoggedOut';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
 import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -46,6 +48,7 @@ export default class ProfilePage extends Component {
         if (this.state.failedAuth || !this.state.user) {
             return (
                 <div className='catch'>
+                    <HeaderLoggedOut />
                     <p className='catch__sentence'>You must be logged in to see this page.</p>
                     <Link className='catch__button' to='/'>Log In</Link>
                 </div>
@@ -60,8 +63,15 @@ export default class ProfilePage extends Component {
 
         const { displayPicture, id, firstName, lastName, certification, yearsExperience, about } = this.state.user
 
+        console.log(this.props.match);
+        console.log(this.props.history);
+
         return (
             <div className='profile'>
+                <Header 
+                    logout={this.handleLogout}
+                    id={id}
+                    />
                 <DisplayPicture 
                     displayPicture={displayPicture}
                     name={firstName + " " + lastName}
@@ -70,20 +80,20 @@ export default class ProfilePage extends Component {
                     />
                 <article className='profile__info-card'>
                         <p className='profile__about'>{about}</p>
-                        <Link 
+                        {/* <Link 
                             className='profile__edit-link'
                             to={{
                                 pathname: '/' + id + '/edit',
                                 user: id    // this passes in user id to edit profile page, so as to identify logged in user
                             }}>
                             <button className='profile__edit-button'>Edit Profile</button>
-                        </Link>
+                        </Link> */}
                 </article>
                 <div className='profile__link-container'>
                     <Link to='/search' className='profile__link'>Search for a dive location!</Link>
                     <Link to={'/' + id + '/find'} className='profile__link'>Find a buddy!</Link>
                 </div>
-                <button className='profile__logout' onClick={this.handleLogout}>Log Out</button>
+                {/* <button className='profile__logout' onClick={this.handleLogout}>Log Out</button> */}
             </div>
         );
     }
