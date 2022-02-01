@@ -68,7 +68,7 @@ router.post('/signup', (req, res) => {
     const userData = readUsers();
     userData.push(newUser);
     console.log(userData);
-    // fs.writeFileSync('./data/users.json', JSON.stringify(userData));
+    fs.writeFileSync('./data/users.json', JSON.stringify(userData));
 
     res.status(201).send("registration successful!");
 });
@@ -139,9 +139,11 @@ router.put('/swipe', (req, res) => {
 // put endpoint for editing existing user profile
 router.put('/edit', (req, res) => {
     const { id, firstName, lastName, certification, yearsExperience, about } = req.body
-
-    console.log(yearsExperience);
     
+    if (!id || !firstName || !lastName || !certification || !yearsExperience ) {
+        res.status(400).send('Please fill in all fields')
+    }
+
     const users = readUsers();
 
     const user = readUsers().find(user => user.id === id);
@@ -157,7 +159,7 @@ router.put('/edit', (req, res) => {
 
     users.splice(index, 1, user);
 
-    // fs.writeFileSync("./data/users.json", JSON.stringify(users));
+    fs.writeFileSync("./data/users.json", JSON.stringify(users));
 
     res.status(200).send('Edited profile successfully')
 });

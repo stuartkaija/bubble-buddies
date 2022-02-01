@@ -7,7 +7,7 @@ import './EditProfilePage.scss';
 export default class EditProfilePage extends Component {
 
     state = {
-        user: null,
+        error: null,
 
     }
 
@@ -16,11 +16,15 @@ export default class EditProfilePage extends Component {
 
         const { firstname, lastname, exp, cert, about } = event.target
 
-        console.log(exp.value);
+        if (!firstname.value || !lastname.value) {
+            alert('highlighted fields required!');
+            this.setState({error: true})
+            return;
+        }
 
         axios
             .put('http://localhost:8080/users/edit', {
-                id: this.props.location.user,
+                id: this.props.match.params.userId,
                 firstName: firstname.value,
                 lastName: lastname.value,
                 certification: cert.value,
@@ -34,6 +38,7 @@ export default class EditProfilePage extends Component {
     };
 
     render() {
+
         console.log(this.props.match.params.userId);
 
         return (
@@ -43,9 +48,17 @@ export default class EditProfilePage extends Component {
                     id={this.props.match.params.userId}
                     />
                 <h2 className='edit__title'>Edit your profile</h2>
-                <form onSubmit={this.handleEditSubmit} className='edit__form' action="" id='edit-profile'>
-                    <Input label='First Name' type='text' name='firstname' id='firstname' />
-                    <Input label='Last Name' type='text' name='lastname' id='lastname' />
+                <form className='edit__form' onSubmit={this.handleEditSubmit} action="" id='edit-profile'>
+                    <div className='edit__name-container'>
+                        <label className='edit__name-label' htmlFor="firstname" name='firstname' >First Name</label>
+                        <input className={this.state.error ? 'edit__name-input--error' : 'edit__name-input'} type="text" name='firstname' id='firstname' placeholder='FIRST NAME'/>
+                    </div>
+                    <div className='edit__name-container'>
+                        <label className='edit__name-label' htmlFor="lastname" name='lastname' >Last Name</label>
+                        <input className={this.state.error ? 'edit__name-input--error' : 'edit__name-input'} type="text" name='lastname' id='lastname' placeholder='LAST NAME'/>
+                    </div>
+                    {/* <label htmlFor="">test</label>
+                    <input className={this.state.error? 'error' : ''} type="text" /> */}
                     <div className='edit__years-container'>
                         <label className='edit__years-label' htmlFor="exp">Years Experience</label>
                         <select className='edit__years-select' name="exp" id="exp" defaultValue='0-2'>

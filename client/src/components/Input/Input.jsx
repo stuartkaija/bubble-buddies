@@ -1,7 +1,7 @@
 import React from 'react';
 import './Input.scss';
 
-export default function Input({label, type, name, id, placeholder}) {
+export default function Input({label, type, name, id, placeholder, error}) {
     return (
         <div className='input-container'>
             <label className='input-label' htmlFor={id}>{label}</label>

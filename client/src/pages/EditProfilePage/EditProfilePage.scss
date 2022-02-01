@@ -9,6 +9,29 @@
         text-align: center;
     }
 
+    &__name-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__name-label {
+        margin-top: 1rem;
+        font-weight: bold
+    }
+
+    &__name-input {
+        @include input;
+        max-width: 15rem;
+        margin: 0.5rem 0rem;
+
+        &--error {
+            @include input;
+            max-width: 15rem;
+            margin: 0.5rem 0rem;
+            border: 0.15rem solid $color-fail;
+        }
+    }
+
     &__years-container {
         display: flex;
         justify-content: space-between;
@@ -18,7 +41,6 @@
     &__years-label {
         font-weight: bold;
         padding-top: 1rem;
-
     }
 
     &__years-select {
@@ -71,4 +93,8 @@
         width: 6rem;
         margin-left: auto;
     }
+}
+
+.error {
+    border: 0.15rem solid $color-fail;
 }

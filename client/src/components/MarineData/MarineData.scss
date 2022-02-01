@@ -4,6 +4,7 @@
 
 .data {
     // background-color: rgb(62, 64, 216);
+    padding: 0rem 1rem;
 
     &__titles {
         display: flex;
@@ -19,6 +20,7 @@
     &__container {
         display: flex;
         justify-content: space-between;
+        padding-top: 0.25rem;
     }
 
     &__info {
