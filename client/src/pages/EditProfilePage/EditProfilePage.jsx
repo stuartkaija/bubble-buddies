@@ -8,7 +8,6 @@ export default class EditProfilePage extends Component {
 
     state = {
         error: null,
-
     }
 
     handleEditSubmit = (event) => {
@@ -34,13 +33,22 @@ export default class EditProfilePage extends Component {
             .then(response => console.log(response))
             .then(event.target.reset())
             .catch(error => console.log(error));
-
     };
 
-    render() {
-
+    handleDelete = (event) => {
+        event.preventDefault();
+        console.log(event);
         console.log(this.props.match.params.userId);
 
+        axios
+            .delete('http://localhost:8080/users/delete', {
+                data: {id: this.props.match.params.userId}
+            })
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
+    }
+
+    render() {
         return (
             <div className='edit'>
                 <Header 
@@ -82,7 +90,10 @@ export default class EditProfilePage extends Component {
                     <label className='edit__about-label' htmlFor="about">Share some fun facts about yourself here!</label>
                     <textarea className='edit__about-input' name="about" id="about" cols="30" rows="7"></textarea>
                 </form>
-                <button className='edit__button' form='edit-profile'>Submit</button>
+                <div className='edit__button-container'>
+                    <button className='edit__button' onClick={this.handleDelete}>Delete Account</button>
+                    <button className='edit__button' form='edit-profile'>Submit</button>
+                </div>
             </div>
         );
     }

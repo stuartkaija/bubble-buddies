@@ -87,11 +87,15 @@
         outline: none;
     }
 
+    &__button-container {
+        display: flex;
+        justify-content: space-between
+    }
+
     &__button {
         @include button;
         height: 2rem;
-        width: 6rem;
-        margin-left: auto;
+        width: 9rem;
     }
 }
 
