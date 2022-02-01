@@ -41,9 +41,9 @@ export default class LoginPage extends Component {
             <div className='login'>
                 <HeaderLoggedOut />
                 <p className='login__title'>Log In</p>
-                <form onSubmit={this.handleSubmit} className='login__form' id='login'>
-                    <input className='login__email' type="text" id='email' name='email' placeholder='EMAIL' />
-                    <input className='login__password' type="password" id='password' name='password' placeholder='PASSWORD' />
+                <form onSubmit={this.handleSubmit} aria-label='Log In Form' className='login__form' id='login'>
+                    <input className='login__email' aria-label='Email Input' type="text" id='email' name='email' placeholder='EMAIL' />
+                    <input className='login__password' aria-label='Password Input' type="password" id='password' name='password' placeholder='PASSWORD' />
                 </form>
                 {this.state.error && <p className='login__error'>{this.state.error}</p>}
                 <button className='login__button' form='login'>Log In</button>
