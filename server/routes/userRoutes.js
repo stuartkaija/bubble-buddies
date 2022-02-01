@@ -48,6 +48,12 @@ router.post('/signup', (req, res) => {
         return res.status(400).send("Email and password are required to sign up.")
     }
 
+    const emailExists = readUsers().find(user => user.email === email)
+
+    if (emailExists) {
+        return res.status(400).send("That email is already in the system.")
+    }
+
     const hashedPassword = bcrypt.hashSync(password, 10);
 
     const newUser = {
@@ -60,15 +66,15 @@ router.post('/signup', (req, res) => {
         yearsExperience: null,
         // default picture when new user signs up
         displayPicture: "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
-        rightUsers: [],
-        leftUsers: [],
+        swipeRight: [],
+        swipeLeft: [],
         about: ""
     };
     
     const userData = readUsers();
     userData.push(newUser);
     console.log(userData);
-    // fs.writeFileSync('./data/users.json', JSON.stringify(userData));
+    fs.writeFileSync('./data/users.json', JSON.stringify(userData));
 
     res.status(201).send("registration successful!");
 });
@@ -83,7 +89,7 @@ router.post('/login', (req, res) => {
 
     const foundUser = findUser(email);
     if (!foundUser) {
-        res.status(400).send("No user found.")
+        res.status(400).send("User not found.")
     }
 
     const checkPassword = bcrypt.compareSync(password, foundUser.password);
@@ -104,67 +110,91 @@ router.post('/login', (req, res) => {
 router.put('/swipe', (req, res) => {
     // from front end - logged in user, potential buddy, direction of swipe
     const { userId, buddy, direction } = req.body
-
+    console.log(buddy);
     // get array of users, filter out logged in user
     // const potentialBuddies = readUsers().filter(buddy => buddy.id !== userId); don't think I need this
     // find logged in user from array
     const users = readUsers();
 
-    const user = readUsers().find(user => user.id === userId);
+    // const user = readUsers().find(user => user.id === userId);
     // console.log(user);
 
+
     const potentialBuddy = readUsers().find(user => user.id === buddy);
-    // console.log(potentialBuddy);
+    console.log(potentialBuddy);
 
     for (let i = 0; i < users.length; i++) {
+        const user = readUsers().find(user => user.id === userId);
+        const index = readUsers().findIndex(user => user.id === userId)
+
         // find correct user
         if (users[i].id === userId) {
             if (direction === 'right') {
                 user.swipeRight.push(potentialBuddy.firstName);
                 // splice updated user object back into users array
-                users.splice(users[i], 1, user);
-                // fs.writeFileSync("./data/users.json", JSON.stringify(users));
+                users.splice(index, 1, user);
+                fs.writeFileSync("./data/users.json", JSON.stringify(users));
             };
             if (direction === 'left') {
                 user.swipeLeft.push(potentialBuddy.firstName);
-                users.splice(users[i], 1, user);
-                // fs.writeFileSync("./data/users.json", JSON.stringify(users));
+                users.splice(index, 1, user);
+                fs.writeFileSync("./data/users.json", JSON.stringify(users));
             };
         }
     }
 
-    res.status(201).send('Swipe registered');
+    res.status(200).send('Swipe registered');
 });
 
 // put endpoint for editing existing user profile
 router.put('/edit', (req, res) => {
     const { id, firstName, lastName, certification, yearsExperience, about } = req.body
-
-    console.log(yearsExperience);
+    console.log(req.body);
     
+    if (!id || !firstName || !lastName || !certification || !yearsExperience ) {
+        res.status(400).send('Please fill in all fields')
+    }
+
     const users = readUsers();
 
     const user = readUsers().find(user => user.id === id);
 
     const index = readUsers().findIndex(user => user.id === id)
+    console.log(index);
+   
+    user.id = id
 
-    user.id = id,
-    user.firstName = firstName
-    user.lastName = lastName
-    user.certification = certification
-    user.yearsExperience = yearsExperience
-    user.about = about
+    if (firstName) {user.firstName = firstName}
+    if (lastName) {user.lastName = lastName}
+    if (certification) {user.certification = certification}
+    if (yearsExperience) {user.yearsExperience = yearsExperience}
+    if (about) {user.about = about}
 
     users.splice(index, 1, user);
 
-    // fs.writeFileSync("./data/users.json", JSON.stringify(users));
+    fs.writeFileSync("./data/users.json", JSON.stringify(users));
 
     res.status(200).send('Edited profile successfully')
 });
 
 // delete endpoint for deleting user
-router.delete('/current', (req, res) => {
-    console.log("delete endpoint for deleting user");
+router.delete('/delete', (req, res) => {
+    const { id } = req.body;
+
+    let users = readUsers();
+    
+    //find index of user to delete
+    const index = readUsers().findIndex(user => user.id === id)
+
+    // remove user from data
+    users.splice(index, 1);
+
+    fs.writeFileSync("./data/users.json", JSON.stringify(users));
+
+    console.log(users);
+
+    res.status(200).send('Profile deleted succesfully.')
+
 });
 
 module.exports = router;

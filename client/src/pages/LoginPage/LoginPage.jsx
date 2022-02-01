@@ -31,8 +31,8 @@ export default class LoginPage extends Component {
                 sessionStorage.setItem("token", response.data.token);
                 this.setState({ loggedIn: true, error: "", userId: response.data.userId })
             })
-            .catch(error => {
-                this.setState({ error: error })
+            .catch(() => {
+                this.setState({ error: 'Incorrect username or password!' })
             });
     };
 

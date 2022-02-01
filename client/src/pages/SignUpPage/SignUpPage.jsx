@@ -21,9 +21,9 @@ export default class SignUp extends Component {
             return alert ('please fill in all fields')
         }
 
-        // if (!event.target.email.value.match(validRegexEmail)) {
-        //     return alert("Please enter a valid email address.")
-        // }
+        if (!event.target.email.value.match(validRegexEmail)) {
+            return alert("Please enter a valid email address.")
+        }
 
         if (event.target.password.value !== event.target.confirmPassword.value) {
             return alert ('passwords do not match');
@@ -51,7 +51,7 @@ export default class SignUp extends Component {
                 })
                 event.target.reset();
             })
-            .catch((error) => {console.log(error)});
+            .catch(() => {this.setState({error: true})});
     };
 
     render() {
@@ -65,9 +65,11 @@ export default class SignUp extends Component {
                     <input className='sign-up__password' type="password" name='confirmPassword' id='confirmPassword' placeholder='CONFIRM PASSWORD' />
                 </form>
                 <button className='sign-up__button' form='signup'>Sign Up</button>
+                {this.state.error && <div className='sign-up__error'>That email is already in our system!</div>}
                 <div className='sign-up__container'>
                     <p className='sign-up__span'>Have an account?</p>
                     {this.state.success && <div className='sign-up__success'>Signed Up! Please Log In Below</div>}
+                    
                     <Link to='/'>
                         <button className='sign-up__button'>Log In</button>
                     </Link>

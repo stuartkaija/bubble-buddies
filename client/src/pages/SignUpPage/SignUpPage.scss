@@ -46,4 +46,8 @@
     &__success {
         color: $color-success;
     }
+
+    &__error {
+        color: $color-fail;
+    }
 }
