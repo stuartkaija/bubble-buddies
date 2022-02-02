@@ -92,6 +92,7 @@
 
     &__button {
         @include button;
+        margin: 1rem 2rem;
         height: 2rem;
         width: 9rem;
     }

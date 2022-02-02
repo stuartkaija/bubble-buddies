@@ -24,7 +24,6 @@ class Header extends Component {
 
         return (
             <nav className='header-nav'>
-
                 <Link className='header-nav__link' to ={'/' + id + '/'}>
                     <img src={arrow} alt="back arrow icon" />
                 </Link>

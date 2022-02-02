@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
 import './EditProfilePage.scss';
@@ -32,6 +33,7 @@ export default class EditProfilePage extends Component {
             })
             .then(response => console.log(response))
             .then(event.target.reset())
+            .then(this.props.history.push('/' + this.props.match.params.userId))
             .catch(error => console.log(error));
     };
 
@@ -45,6 +47,7 @@ export default class EditProfilePage extends Component {
                 data: {id: this.props.match.params.userId}
             })
             .then(response => console.log(response))
+            .then(this.props.history.push('/' + this.props.match.params.userId))
             .catch(error => console.log(error));
     }
 
@@ -65,8 +68,6 @@ export default class EditProfilePage extends Component {
                         <label className='edit__name-label' htmlFor="lastname" name='lastname' >Last Name</label>
                         <input className={this.state.error ? 'edit__name-input--error' : 'edit__name-input'} type="text" name='lastname' id='lastname' placeholder='LAST NAME'/>
                     </div>
-                    {/* <label htmlFor="">test</label>
-                    <input className={this.state.error? 'error' : ''} type="text" /> */}
                     <div className='edit__years-container'>
                         <label className='edit__years-label' htmlFor="exp">Years Experience</label>
                         <select className='edit__years-select' name="exp" id="exp" defaultValue='0-2'>
@@ -93,6 +94,12 @@ export default class EditProfilePage extends Component {
                 <div className='edit__button-container'>
                     <button className='edit__button' onClick={this.handleDelete}>Delete Account</button>
                     <button className='edit__button' form='edit-profile'>Submit</button>
+                </div>
+                <div className='edit__button-container'>
+                    {/* <button className='edit__button' onClick={this.handleDelete}>
+                        <NavLink to=''>Delete Account</NavLink>
+                    </button> */}
+
                 </div>
             </div>
         );

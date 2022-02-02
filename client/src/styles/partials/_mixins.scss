@@ -10,7 +10,8 @@
         margin: 0.5rem;
 
         &:hover {
-            background-color: $color-accent-secondary;
+            background-color: $color-background-secondary;
+            // border: 0.01rem solid $color-accent-primary;
         }
 }
 
