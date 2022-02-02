@@ -13,7 +13,6 @@ function App() {
 
     return (
         <BrowserRouter>
-            {/* <Header /> */}
             <div className='app'>
                 <Switch>
                     <Route path='/' exact component={LoginPage} />

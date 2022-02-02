@@ -60,7 +60,7 @@ export default class SearchPage extends Component {
             )
         };
 
-        const { temp_c, vis_km, wind_kph, wind_dir } = this.state.location.current
+        const { temp_c, temp_f, vis_km, wind_kph, wind_dir } = this.state.location.current
         const { name, country } = this.state.location.location
 
         return (
@@ -68,7 +68,8 @@ export default class SearchPage extends Component {
                 <Header 
                     // logout={this.handleLogout}
                     // id={id}
-                    />                <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
+                    />
+                <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
                     <label className='place-search__label' htmlFor="">Search for a location</label>
                     <div>
                         <input className='place-search__input' type="search" name='search' id='search' />
@@ -79,7 +80,7 @@ export default class SearchPage extends Component {
                 <div className='weather'>
                     <div className='weather__container'>
                         <p className='weather__subtitle'>conditions: <span className='weather__details'>{this.state.location.current.condition.text}</span></p>
-                        <p className='weather__subtitle'>temperature: <span className='weather__details'>{temp_c}°C</span></p>
+                        <p className='weather__subtitle'>temperature: <span className='weather__details'>{temp_c}°C / {temp_f}°F</span></p>
                         <p className='weather__subtitle'>visibility: <span className='weather__details'>{vis_km}km</span> </p>
                         <p className='weather__subtitle'>wind: <span className='weather__details'>{wind_kph}km {wind_dir}</span></p>
                     </div>

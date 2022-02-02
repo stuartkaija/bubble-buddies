@@ -58,10 +58,10 @@ export default class SignUp extends Component {
             <div className='sign-up'>
                 <HeaderLoggedOut />
                 <p className='sign-up__title'>Sign Up</p>
-                <form onSubmit={this.handleSubmit} className='sign-up__form' id="signup">
-                    <input className='sign-up__email' type="text" name='email' id='email' placeholder='EMAIL' />
-                    <input className='sign-up__password' type="password" name='password' id='password' placeholder='PASSWORD' />
-                    <input className='sign-up__password' type="password" name='confirmPassword' id='confirmPassword' placeholder='CONFIRM PASSWORD' />
+                <form onSubmit={this.handleSubmit} aria-label='Sign Up Form' className='sign-up__form' id="signup">
+                    <input className='sign-up__email' aria-label='Email Input' type="text" name='email' id='email' placeholder='EMAIL' />
+                    <input className='sign-up__password' aria-label='Password Input' type="password" name='password' id='password' placeholder='PASSWORD' />
+                    <input className='sign-up__password' aria-label='Confirm Password Input' type="password" name='confirmPassword' id='confirmPassword' placeholder='CONFIRM PASSWORD' />
                 </form>
                 <button className='sign-up__button' form='signup'>Sign Up</button>
                 {this.state.error && <div className='sign-up__error'>That email is already in our system!</div>}

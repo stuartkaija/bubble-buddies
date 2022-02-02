@@ -11,7 +11,7 @@
 
     &__name-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     &__name-label {
@@ -35,7 +35,6 @@
     &__years-container {
         display: flex;
         justify-content: space-between;
-        padding: 0rem 3rem;
     }
 
     &__years-label {
@@ -53,7 +52,6 @@
     &__cert-container {
         display: flex;
         justify-content: space-between;
-        padding: 0rem 3rem;
     }
 
     &__cert-label {
@@ -70,6 +68,7 @@
     &__form {
         display: flex;
         flex-direction: column;
+        padding: 0rem 2rem;
     }
 
     &__about-label {
@@ -83,7 +82,6 @@
         border-radius: 0.75rem;
         font-family: 'Montserrat';
         padding: 0.75rem;
-        margin: 0rem 1.5rem;
         outline: none;
     }
 
@@ -94,6 +92,7 @@
 
     &__button {
         @include button;
+        margin: 1rem 2rem;
         height: 2rem;
         width: 9rem;
     }
