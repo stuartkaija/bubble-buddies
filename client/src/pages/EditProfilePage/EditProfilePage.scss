@@ -1,0 +1,103 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    
+    &__title {
+        text-align: center;
+    }
+
+    &__name-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__name-label {
+        margin-top: 1rem;
+        font-weight: bold
+    }
+
+    &__name-input {
+        @include input;
+        max-width: 15rem;
+        margin: 0.5rem 0rem;
+
+        &--error {
+            @include input;
+            max-width: 15rem;
+            margin: 0.5rem 0rem;
+            border: 0.15rem solid $color-fail;
+        }
+    }
+
+    &__years-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__years-label {
+        font-weight: bold;
+        padding-top: 1rem;
+    }
+
+    &__years-select {
+        @include input;
+        margin: 0.5rem 0rem;
+        width: 12rem;
+        background-color: $color-text-primary;
+    }
+
+    &__cert-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__cert-label {
+        font-weight: bold;
+        padding-top: 1rem;
+    }
+
+    &__cert-select {
+        @include input;
+        margin: 0.5rem 0rem;
+        background-color: $color-text-primary;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        padding: 0rem 2rem;
+    }
+
+    &__about-label {
+        text-align: center;
+        margin-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__about-input {
+        resize: none;
+        border-radius: 0.75rem;
+        font-family: 'Montserrat';
+        padding: 0.75rem;
+        outline: none;
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: space-between
+    }
+
+    &__button {
+        @include button;
+        margin: 1rem 2rem;
+        height: 2rem;
+        width: 9rem;
+    }
+}
+
+.error {
+    border: 0.15rem solid $color-fail;
+}

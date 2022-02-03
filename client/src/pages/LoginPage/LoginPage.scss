@@ -1,0 +1,50 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    &__title {
+        color: $color-text-primary;
+        font-weight: bold;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 6rem;
+    }
+
+    &__email {
+        @include input;
+    }
+
+    &__password {
+        @include input;
+    }
+    
+    &__button {
+        @include button;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 4rem;
+    }
+
+    &__span {
+        color: $color-text-primary;
+        font-weight: bold;
+        margin: 0.5rem;
+    }
+
+    &__error {
+        color: $color-fail;
+    }
+}

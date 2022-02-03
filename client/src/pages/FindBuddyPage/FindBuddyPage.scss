@@ -1,0 +1,48 @@
+@use '../../styles/partials/variables' as *;
+
+.buddy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__tindercard {
+        position: absolute;
+        top: 8rem;
+    }
+    
+    &__picture {
+        position: absolute;
+    }
+}
+
+.buddy-buttons {
+    margin-top: 30rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buddy-button-left {
+    background-color: $color-fail;
+    border: none;
+    border-radius: 5rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    background-image: url(../../assets/icons/close.png);
+    background-position: center;
+    background-size: 2rem;
+    background-repeat: no-repeat;
+}
+
+.buddy-button-right {
+    background-color: $color-success;
+    border: none;
+    border-radius: 5rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    object-fit: contain;
+    background-image: url(../../assets/icons/check.png);
+    background-position: center;
+    background-size: 2rem;
+    background-repeat: no-repeat;
+}

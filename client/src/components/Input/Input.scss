@@ -1,0 +1,19 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 3rem;
+}
+
+.input-label {
+    margin-top: 1rem;
+    font-weight: bold
+}
+
+.input-input {
+    @include input;
+    max-width: 15rem;
+    margin: 0.5rem 0rem;
+}
