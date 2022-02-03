@@ -39,3 +39,11 @@ https://www.weatherapi.com/api-explorer.aspx
 Clone the repo to your local machine and install the dependencies to try Bubble Buddies for yourself. Weather and marine data will require API keys as described above.
 
 ## Screenshots
+
+![Screen Shot 2022-02-02 at 6 07 40 PM](https://user-images.githubusercontent.com/93488674/152269692-540201dd-7331-45be-84c7-97091dbc9de1.png)
+
+![Screen Shot 2022-02-02 at 6 07 42 PM](https://user-images.githubusercontent.com/93488674/152269695-6753a9aa-1bbc-456b-8ade-9e32f17fb343.png)
+
+![Screen Shot 2022-02-02 at 6 07 51 PM](https://user-images.githubusercontent.com/93488674/152269699-501b29b2-7d40-4bac-be67-f05c5e575be8.png)
+
+![Screen Shot 2022-02-02 at 6 08 04 PM](https://user-images.githubusercontent.com/93488674/152269701-6991ce5d-bd6d-4706-95a4-f061cadfd3bb.png)
