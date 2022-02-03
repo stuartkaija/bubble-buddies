@@ -36,7 +36,7 @@ https://www.weatherapi.com/api-explorer.aspx
 
 ## Try it for yourself!
 
-Clone the repo to your local machine and install the dependencies to try Bubble Buddies for yourself. Weather and marine data will require API keys as described above.
+Clone the repo to your local machine and install the dependencies to try Bubble Buddies for yourself. Weather and marine data will require API keys as described above. Note instructions in sample.env for how to set up on your local environment.
 
 ## Screenshots
 
