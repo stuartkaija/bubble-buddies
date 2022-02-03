@@ -3,6 +3,8 @@ import TinderCard from 'react-tinder-card';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
 import Header from '../../components/Header/Header';
 import './FindBuddyPage.scss';
+import check from '../../assets/icons/check.png'
+import close from '../../assets/icons/close.png'
 
 import axios from 'axios';
 
@@ -87,6 +89,14 @@ export default class FindBuddyPage extends Component {
                             </TinderCard>
                         )
                     })}
+                    <div className='buddy-buttons' >
+                        <button className='buddy-button-left'>
+                            {/* <img className='buddy-button-left__x' src={close} alt="X icon to swipe left" /> */}
+                        </button>
+                        <button className='buddy-button-right'>
+                            {/* <img className='buddy-button-right__check' src={check} alt="check icon to swipe right" /> */}
+                        </button>
+                    </div>
             </div>
         );
     }
