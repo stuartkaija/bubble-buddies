@@ -47,3 +47,5 @@ Clone the repo to your local machine and install the dependencies to try Bubble 
 ![Screen Shot 2022-02-02 at 6 07 51 PM](https://user-images.githubusercontent.com/93488674/152270191-4ad53f49-f444-4f84-aab7-0dbdb7026e2b.png)
 
 ![Screen Shot 2022-02-02 at 6 08 04 PM](https://user-images.githubusercontent.com/93488674/152270193-25c0c78a-d8dd-4a73-8b61-bccb2ab9f9a5.png)
+
+[bubble-buddy-pics.pdf](https://github.com/stuartkaija/bubble-buddies/files/8120942/bubble-buddy-pics.pdf)
