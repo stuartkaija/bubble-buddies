@@ -18,7 +18,6 @@ const findUser = (email) => {
     return userData.find((user) => email === user.email);
 };
 
-
 // get endpoint for all users
 router.get('/', (req, res) => {
     const users = readUsers();
@@ -108,17 +107,11 @@ router.post('/login', (req, res) => {
 
 // put endpoint for adding users from find buddy page
 router.put('/swipe', (req, res) => {
-    // from front end - logged in user, potential buddy, direction of swipe
+    // logged in user, potential buddy, direction of swipe
     const { userId, buddy, direction } = req.body
-    console.log(buddy);
     // get array of users, filter out logged in user
-    // const potentialBuddies = readUsers().filter(buddy => buddy.id !== userId); don't think I need this
     // find logged in user from array
     const users = readUsers();
-
-    // const user = readUsers().find(user => user.id === userId);
-    // console.log(user);
-
 
     const potentialBuddy = readUsers().find(user => user.id === buddy);
     console.log(potentialBuddy);

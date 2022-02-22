@@ -38,7 +38,7 @@ export default class FindBuddyPage extends Component {
                 .catch(error => console.log(error));
     }
 
-    // Callback that will be executed when a TinderCard has left the screen. It will be called with a single string denoting which direction the swipe was in: 'left', 'right', 'up' or 'down'.
+    // callback executed when a TinderCard has left the screen
     onCardLeftScreen = (myIdentifier) => {
         console.log(myIdentifier + ' left the screen')
     }

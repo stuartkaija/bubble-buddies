@@ -1,6 +1,5 @@
 import './App.scss';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
-import Header from './components/Header/Header';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignUp from './pages/SignUpPage/SignUpPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
