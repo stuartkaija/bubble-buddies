@@ -109,12 +109,10 @@ router.post('/login', (req, res) => {
 router.put('/swipe', (req, res) => {
     // logged in user, potential buddy, direction of swipe
     const { userId, buddy, direction } = req.body
-    // get array of users, filter out logged in user
-    // find logged in user from array
+
     const users = readUsers();
 
     const potentialBuddy = readUsers().find(user => user.id === buddy);
-    console.log(potentialBuddy);
 
     for (let i = 0; i < users.length; i++) {
         const user = readUsers().find(user => user.id === userId);
@@ -187,7 +185,6 @@ router.delete('/delete', (req, res) => {
     console.log(users);
 
     res.status(200).send('Profile deleted succesfully.')
-
 });
 
 module.exports = router;
