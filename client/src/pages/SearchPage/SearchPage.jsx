@@ -6,7 +6,6 @@ import './SearchPage.scss';
 
 export default class SearchPage extends Component {
 
-    // state to hold the data when it arrives from the backend
     state = {
         location: null,
         marineData: null
@@ -30,7 +29,7 @@ export default class SearchPage extends Component {
             .catch(error => console.log(error));
     };
 
-    handleMarineSearch = (event) => {
+    handleMarineSearch = () => {
         // latitude and longitude of searched for location
         const lat = this.state.location.location.lat;
         const long = this.state.location.location.lon;
@@ -39,7 +38,6 @@ export default class SearchPage extends Component {
                 lat: lat,
                 long: long
             })
-            // .then(response => console.log(response.data.weather[0].hourly))
             .then(response => this.setState({ marineData: response.data.weather[0].hourly }))
             .catch(error => console.log(error))
     };
@@ -65,10 +63,7 @@ export default class SearchPage extends Component {
 
         return (
             <>
-                <Header 
-                    // logout={this.handleLogout}
-                    // id={id}
-                    />
+                <Header />
                 <form className='place-search' onSubmit={this.handleSearch} id='searchForm'>
                     <label className='place-search__label' htmlFor="">Search for a location</label>
                     <div>

@@ -1,7 +1,5 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import Input from '../../components/Input/Input';
 import Header from '../../components/Header/Header';
 import './EditProfilePage.scss';
 
@@ -55,7 +53,6 @@ export default class EditProfilePage extends Component {
         return (
             <div className='edit'>
                 <Header 
-                    // logout={this.handleLogout}
                     id={this.props.match.params.userId}
                     />
                 <h2 className='edit__title'>Edit your profile</h2>
@@ -94,12 +91,6 @@ export default class EditProfilePage extends Component {
                 <div className='edit__button-container'>
                     <button className='edit__button' onClick={this.handleDelete}>Delete Account</button>
                     <button className='edit__button' form='edit-profile'>Submit</button>
-                </div>
-                <div className='edit__button-container'>
-                    {/* <button className='edit__button' onClick={this.handleDelete}>
-                        <NavLink to=''>Delete Account</NavLink>
-                    </button> */}
-
                 </div>
             </div>
         );

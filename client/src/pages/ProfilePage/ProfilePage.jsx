@@ -3,7 +3,7 @@ import './ProfilePage.scss';
 import Header from '../../components/Header/Header';
 import HeaderLoggedOut from '../../components/HeaderLoggedOut/HeaderLoggedOut';
 import DisplayPicture from '../../components/DisplayPicture/DisplayPicture';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default class ProfilePage extends Component {
@@ -82,7 +82,6 @@ export default class ProfilePage extends Component {
                     <Link to='/search' className='profile__link'>Search for a dive location!</Link>
                     <Link to={'/' + id + '/find'} className='profile__link'>Find a buddy!</Link>
                 </div>
-                {/* <button className='profile__logout' onClick={this.handleLogout}>Log Out</button> */}
             </div>
         );
     }

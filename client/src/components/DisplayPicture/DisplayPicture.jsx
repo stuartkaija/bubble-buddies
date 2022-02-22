@@ -1,7 +1,6 @@
 import React from 'react';
 import './DisplayPicture.scss';
 
-
 export default function DisplayPicture({ displayPicture, name, certification, experience }) {
     return (
         <div className='display-pic'>
