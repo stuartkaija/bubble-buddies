@@ -3,7 +3,6 @@ import uniqid from 'uniqid';
 import './MarineData.scss';
 
 export default function MarineData(hourlyData) {
-
     return (
         <div className='data'>
             <div className='data__titles'>

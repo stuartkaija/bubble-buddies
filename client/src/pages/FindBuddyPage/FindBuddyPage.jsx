@@ -11,13 +11,9 @@ import axios from 'axios';
 export default class FindBuddyPage extends Component {
 
     state = {
-        users: [],   // populate this on componentDidMount from JSON data
-        userId: null,   // id of currently logged in user
-        // filteredUsers: []   // maybe I dont need this here...
+        users: [],
+        userId: null,
     }
-
-    // when page loads, user array (first user) will appear on screen in card
-    // need to filter out presently logged in user
 
     componentDidMount () {
         axios
@@ -27,23 +23,9 @@ export default class FindBuddyPage extends Component {
 
         // find currently logged in user
         const userId = this.props.match.params.userId
-        this.setState({userId: userId});
+        this.setState({ userId: userId });
     }
     
-    // Callback that will be executed when a swipe has been completed. It will be called with a single string denoting which direction the swipe was in: 'left', 'right', 'up' or 'down'.
-    // conditional statement whether direction is left or right i.e. if left add user to rightarray and vice versa
-    // onSwipe = (direction) => {
-    //     console.log(direction);
-    //     axios
-    //         .put('http://localhost:8080/users/swipe', {
-    //             user: this.state.userId,
-    //             direction: direction
-    //         })
-    //         .then(res => console.log(res))
-    //         .catch(error => console.log(error));
-
-    // }
-
     swiped = (direction, buddy) => {
         console.log(direction, buddy);
         axios
@@ -56,10 +38,10 @@ export default class FindBuddyPage extends Component {
                 .catch(error => console.log(error));
     }
 
-    // Callback that will be executed when a TinderCard has left the screen. It will be called with a single string denoting which direction the swipe was in: 'left', 'right', 'up' or 'down'.
+    // callback executed when a TinderCard has left the screen
     onCardLeftScreen = (myIdentifier) => {
-            console.log(myIdentifier + ' left the screen')
-        }
+        console.log(myIdentifier + ' left the screen')
+    }
 
     render() {
 
@@ -68,7 +50,6 @@ export default class FindBuddyPage extends Component {
         return (
             <div className='buddy-container'>
                 <Header 
-                    // logout={this.handleLogout}
                     id={this.state.userId}
                     />                
                     {filteredUsers.map((user) => {
@@ -90,12 +71,8 @@ export default class FindBuddyPage extends Component {
                         )
                     })}
                     <div className='buddy-buttons' >
-                        <button className='buddy-button-left'>
-                            {/* <img className='buddy-button-left__x' src={close} alt="X icon to swipe left" /> */}
-                        </button>
-                        <button className='buddy-button-right'>
-                            {/* <img className='buddy-button-right__check' src={check} alt="check icon to swipe right" /> */}
-                        </button>
+                        <button className='buddy-button-left'></button>
+                        <button className='buddy-button-right'></button>
                     </div>
             </div>
         );
