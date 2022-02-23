@@ -40,4 +40,6 @@ Clone the repo to your local machine and install the dependencies to try Bubble 
 
 ## Screenshots
 
-![bubble-buddy-pics](https://user-images.githubusercontent.com/93488674/155239502-2f9ef5b2-e758-449f-a618-34c27dcabb10.png)
+![screenshot1](https://user-images.githubusercontent.com/93488674/155240403-969a8575-3669-4671-a1fd-a13490b109b4.png)
+
+![screenshot2](https://user-images.githubusercontent.com/93488674/155240411-1d6289f5-8797-4cb7-82da-f6db5894ceff.png)
