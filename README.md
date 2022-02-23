@@ -40,10 +40,3 @@ Clone the repo to your local machine and install the dependencies to try Bubble 
 
 ## Screenshots
 
-![Screen Shot 2022-02-02 at 6 07 40 PM](https://user-images.githubusercontent.com/93488674/152270184-46c15b0c-a02d-40eb-a4c1-e4322daead3d.png)
-
-![Screen Shot 2022-02-02 at 6 07 42 PM](https://user-images.githubusercontent.com/93488674/152270189-e3cc3452-6541-4af0-b86e-8411e3ba5db6.png)
-
-![Screen Shot 2022-02-02 at 6 07 51 PM](https://user-images.githubusercontent.com/93488674/152270191-4ad53f49-f444-4f84-aab7-0dbdb7026e2b.png)
-
-![Screen Shot 2022-02-02 at 6 08 04 PM](https://user-images.githubusercontent.com/93488674/152270193-25c0c78a-d8dd-4a73-8b61-bccb2ab9f9a5.png)
